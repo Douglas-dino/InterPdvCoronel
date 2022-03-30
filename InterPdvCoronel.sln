@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterPdvCoronel", "InterPdvCoronel\InterPdvCoronel.csproj", "{C54BFA0D-A733-4028-885A-A4D307A2A86E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C54BFA0D-A733-4028-885A-A4D307A2A86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C54BFA0D-A733-4028-885A-A4D307A2A86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C54BFA0D-A733-4028-885A-A4D307A2A86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C54BFA0D-A733-4028-885A-A4D307A2A86E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2B4BE1D-633B-4D8F-8C9F-248BFC8A0838}
+	EndGlobalSection
+EndGlobal
