@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CORONELModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ITEM_VENDA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="COD_VENDA" Type="int" Nullable="false" />
+          <Property Name="COD_PRODUTO" Type="int" Nullable="false" />
+          <Property Name="VAL_UNITARIO" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGAMENTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_PG" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TOTAL" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="TROCO" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="COD_VENDA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_BARRA" Type="varchar" MaxLength="40" />
+          <Property Name="NOME" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DESCRICAO" Type="text" />
+          <Property Name="QTD_ESTOQUE" Type="int" Nullable="false" />
+          <Property Name="VALOR" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOME" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SOBRENOME" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CPF" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="LOGIN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SENHA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NIVEL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDA">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="date" Nullable="false" />
+          <Property Name="HORA" Type="time" Precision="7" Nullable="false" />
+          <Property Name="VALOR" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ITEM_VENDA_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ITEM_VENDA" Type="Self.ITEM_VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="ITEM_VENDA">
+              <PropertyRef Name="COD_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEM_VENDA_VENDA">
+          <End Role="VENDA" Type="Self.VENDA" Multiplicity="1" />
+          <End Role="ITEM_VENDA" Type="Self.ITEM_VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="ITEM_VENDA">
+              <PropertyRef Name="COD_VENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAGAMENTO_VENDA">
+          <End Role="VENDA" Type="Self.VENDA" Multiplicity="1" />
+          <End Role="PAGAMENTO" Type="Self.PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="PAGAMENTO">
+              <PropertyRef Name="COD_VENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CORONELModelStoreContainer">
+          <EntitySet Name="ITEM_VENDA" EntityType="Self.ITEM_VENDA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAGAMENTO" EntityType="Self.PAGAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENDA" EntityType="Self.VENDA" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ITEM_VENDA_PRODUTO" Association="Self.FK_ITEM_VENDA_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="ITEM_VENDA" EntitySet="ITEM_VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEM_VENDA_VENDA" Association="Self.FK_ITEM_VENDA_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="ITEM_VENDA" EntitySet="ITEM_VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAGAMENTO_VENDA" Association="Self.FK_PAGAMENTO_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="PAGAMENTO" EntitySet="PAGAMENTO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CORONELModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ITEM_VENDA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="COD_VENDA" Type="Int32" Nullable="false" />
+          <Property Name="COD_PRODUTO" Type="Int32" Nullable="false" />
+          <Property Name="VAL_UNITARIO" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PRODUTO" Relationship="Self.FK_ITEM_VENDA_PRODUTO" FromRole="ITEM_VENDA" ToRole="PRODUTO" />
+          <NavigationProperty Name="VENDA" Relationship="Self.FK_ITEM_VENDA_VENDA" FromRole="ITEM_VENDA" ToRole="VENDA" />
+        </EntityType>
+        <EntityType Name="PAGAMENTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_PG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TOTAL" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="TROCO" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="COD_VENDA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VENDA" Relationship="Self.FK_PAGAMENTO_VENDA" FromRole="PAGAMENTO" ToRole="VENDA" />
+        </EntityType>
+        <EntityType Name="PRODUTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_BARRA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NOME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="QTD_ESTOQUE" Type="Int32" Nullable="false" />
+          <Property Name="VALOR" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ITEM_VENDA" Relationship="Self.FK_ITEM_VENDA_PRODUTO" FromRole="PRODUTO" ToRole="ITEM_VENDA" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SOBRENOME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SENHA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NIVEL" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDA">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HORA" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="VALOR" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ITEM_VENDA" Relationship="Self.FK_ITEM_VENDA_VENDA" FromRole="VENDA" ToRole="ITEM_VENDA" />
+          <NavigationProperty Name="PAGAMENTO" Relationship="Self.FK_PAGAMENTO_VENDA" FromRole="VENDA" ToRole="PAGAMENTO" />
+        </EntityType>
+        <Association Name="FK_ITEM_VENDA_PRODUTO">
+          <End Role="PRODUTO" Type="Self.PRODUTO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ITEM_VENDA" Type="Self.ITEM_VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUTO">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="ITEM_VENDA">
+              <PropertyRef Name="COD_PRODUTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ITEM_VENDA_VENDA">
+          <End Role="VENDA" Type="Self.VENDA" Multiplicity="1" />
+          <End Role="ITEM_VENDA" Type="Self.ITEM_VENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="ITEM_VENDA">
+              <PropertyRef Name="COD_VENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PAGAMENTO_VENDA">
+          <End Role="VENDA" Type="Self.VENDA" Multiplicity="1" />
+          <End Role="PAGAMENTO" Type="Self.PAGAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDA">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="PAGAMENTO">
+              <PropertyRef Name="COD_VENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coronelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ITEM_VENDA" EntityType="Self.ITEM_VENDA" />
+          <EntitySet Name="PAGAMENTO" EntityType="Self.PAGAMENTO" />
+          <EntitySet Name="PRODUTO" EntityType="Self.PRODUTO" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VENDA" EntityType="Self.VENDA" />
+          <AssociationSet Name="FK_ITEM_VENDA_PRODUTO" Association="Self.FK_ITEM_VENDA_PRODUTO">
+            <End Role="PRODUTO" EntitySet="PRODUTO" />
+            <End Role="ITEM_VENDA" EntitySet="ITEM_VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ITEM_VENDA_VENDA" Association="Self.FK_ITEM_VENDA_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="ITEM_VENDA" EntitySet="ITEM_VENDA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAGAMENTO_VENDA" Association="Self.FK_PAGAMENTO_VENDA">
+            <End Role="VENDA" EntitySet="VENDA" />
+            <End Role="PAGAMENTO" EntitySet="PAGAMENTO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CORONELModelStoreContainer" CdmEntityContainer="coronelEntities">
+          <EntitySetMapping Name="ITEM_VENDA">
+            <EntityTypeMapping TypeName="CORONELModel.ITEM_VENDA">
+              <MappingFragment StoreEntitySet="ITEM_VENDA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COD_VENDA" ColumnName="COD_VENDA" />
+                <ScalarProperty Name="COD_PRODUTO" ColumnName="COD_PRODUTO" />
+                <ScalarProperty Name="VAL_UNITARIO" ColumnName="VAL_UNITARIO" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGAMENTO">
+            <EntityTypeMapping TypeName="CORONELModel.PAGAMENTO">
+              <MappingFragment StoreEntitySet="PAGAMENTO">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="TIPO_PG" ColumnName="TIPO_PG" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="TROCO" ColumnName="TROCO" />
+                <ScalarProperty Name="COD_VENDA" ColumnName="COD_VENDA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUTO">
+            <EntityTypeMapping TypeName="CORONELModel.PRODUTO">
+              <MappingFragment StoreEntitySet="PRODUTO">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="COD_BARRA" ColumnName="COD_BARRA" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+                <ScalarProperty Name="QTD_ESTOQUE" ColumnName="QTD_ESTOQUE" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="CORONELModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="NOME" ColumnName="NOME" />
+                <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDA">
+            <EntityTypeMapping TypeName="CORONELModel.VENDA">
+              <MappingFragment StoreEntitySet="VENDA">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,85 @@
+﻿.fundo {
+    
+    height: 651px;
+    width: 996px;
+    margin-top: 13px;
+}
+
+form {
+    border-style: solid;
+    border-color: #A4C639;
+    width: 350px;
+    height: 400px;
+    
+    margin-top: 150px;
+    border-width: 2px;
+}
+
+.form {
+    width: 300px;
+    height: 30px;
+    border-radius: 3px;
+    border-color: #d3d3d3;
+    background-color: transparent;
+    font-family: Verdana;
+    border-style: groove;
+    margin-left: 10px
+}
+.formulario{
+    margin-bottom:100px;
+}
+
+#txtUsuario, #txtSenha {
+    padding: 10px;
+    margin-left:50px;
+    width:230px;
+    margin-top: 20px;
+}
+
+.lembre {
+    margin-left: 15px;
+}
+
+#btnLogar {
+    
+    width: 255px;
+    height: 40px;
+    background-color: #A4c939;
+    border-radius: 3px;
+    border-style: none;
+    font-family: Verdana;
+    font-size: large;
+    color: white;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom:10px;
+}
+
+.buttonsenha {
+    margin-left: 100px;
+}
+
+.login {
+    margin-left: 60px;
+    width: 236px;
+    height: 83px;
+}
+
+
+#lblMsg {
+    margin-left: 50px;
+    font-family: Verdana;
+    font-size:12px;
+    color: red;
+}
+
+.copy{
+    margin-top:120px;
+}
+.rotulo {
+    margin-left: 135px;
+    font-style: italic;
+    color: #A4c939;
+}
+
+
