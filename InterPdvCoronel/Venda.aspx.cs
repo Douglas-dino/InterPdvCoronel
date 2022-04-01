@@ -12,9 +12,9 @@ namespace InterPdvCoronel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["NOME"] == null)// Verifica se há acesso de usuário
+            if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
                 Response.Redirect("Default.aspx");
-            lblUsuario.Text =  Session["NOME"].ToString();
+            lblUsuario.Text =  Session["LOGIN"].ToString();
 
             GerarCodVenda();
                

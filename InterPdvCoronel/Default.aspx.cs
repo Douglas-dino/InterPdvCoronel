@@ -37,7 +37,7 @@ namespace InterPdvCoronel
                 }
                 else
                 {
-                    Session["NOME"] = user.NOME; // Guarda o nome do usuário
+                    Session["LOGIN"] = user.NOME; // Guarda o nome do usuário
                     Session["NIVEL"] = user.NIVEL;// Guarda o nivel de acesso do usuário
                     Response.Redirect("Venda.aspx");
                 }
