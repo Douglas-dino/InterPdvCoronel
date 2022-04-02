@@ -19,38 +19,43 @@ namespace InterPdvCoronel
             string usuario = txtUsuario.Text;
             string senha = txtSenha.Text;
             //Cria conexão com banco de dados
-            coronelEntities conexao = new coronelEntities();
 
-            //Busca usuários no banco
-            USUARIO user =
-            conexao.USUARIO.FirstOrDefault(
-                linha => linha.LOGIN.Equals(usuario) &&
-                         linha.SENHA.Equals(senha)
-                );
-
-            if (user != null)
+            using (coronelEntities conexao = new coronelEntities())
             {
-                //verifica se o usuário está ativo ou inativo
-                if (user.STATUS.Equals("I"))
+                //Busca usuários no banco
+                USUARIO user =
+                conexao.USUARIO.FirstOrDefault(
+                    linha => linha.LOGIN.Equals(usuario) &&
+                             linha.SENHA.Equals(senha)
+                    );
+
+                if (user != null)
                 {
-                    lblMsg.Text = "Usuário inativo";
+                    //verifica se o usuário está ativo ou inativo
+                    if (user.STATUS.Equals("I"))
+                    {
+                        lblMsg.Text = "Usuário inativo";
+                    }
+                    else
+                    {
+                        Session["LOGIN"] = user.NOME; // Guarda o nome do usuário
+                        Session["NIVEL"] = user.NIVEL;// Guarda o nivel de acesso do usuário
+                        Response.Redirect("Venda.aspx");
+                    }
+
                 }
                 else
                 {
-                    Session["LOGIN"] = user.NOME; // Guarda o nome do usuário
-                    Session["NIVEL"] = user.NIVEL;// Guarda o nivel de acesso do usuário
-                    Response.Redirect("Venda.aspx");
+                    lblMsg.Text = "Usuário ou Senha Ivalido!";
                 }
+                if (txtUsuario.Text.Equals("") || txtSenha.Text.Equals(""))
+                {
+                    lblMsg.Text = "Preencha os campos usuário e senha";
+                }
+            }
+          
 
-            }
-            else
-            {
-                lblMsg.Text = "Usuário ou Senha Ivalido!";
-            }
-            if (txtUsuario.Text.Equals("") || txtSenha.Text.Equals(""))
-            {
-                lblMsg.Text = "Preencha os Campos Usuário e Senha.";
-            }
+           
         }
 
         

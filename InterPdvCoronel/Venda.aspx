@@ -15,7 +15,7 @@
         </div>
         <div>
             
-            <asp:LinkButton ID="lbkUsuario"  runat="server" OnClick="lbkUsuario_Click">LinkButton</asp:LinkButton>
+            <asp:LinkButton ID="lbkUsuario"  runat="server" OnClick="lbkUsuario_Click">Gestão de Usuário</asp:LinkButton>
             &nbsp<asp:Label ID="lblMsg" runat="server"></asp:Label>
         </div>
         <div>

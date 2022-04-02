@@ -6,6 +6,7 @@
 <head runat="server">
     <link href="estilos/login.css" rel="stylesheet" />   
     <link href="bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+    
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Login</title>
  
@@ -19,7 +20,7 @@
             </div>
 
             <div class="col-12 col-md-4 ">
-                <form id="form1" runat="server" >
+                <form id="form1" runat="server" class="formLogin">
 
                     <div>
           

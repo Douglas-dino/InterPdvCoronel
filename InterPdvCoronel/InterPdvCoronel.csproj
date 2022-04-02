@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="estilos\login.css" />
+    <Content Include="javascript\mensagens.js" />
     <Content Include="ModelData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelData.Context.cs</LastGenOutput>
