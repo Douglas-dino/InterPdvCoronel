@@ -16,8 +16,8 @@
          <img src="imagens/logo.png"/>
     </header>
     <hr style="color: #A4C639"  /> 
-    <div class="row">
-        <div class="col-12 col-md-1">
+    <div class="row"> <!--dentro desta tag está o menu e o formulario -->
+        <div class="col-12 col-md-1"> <!-- menu -->
             <div class="divMenu">
                 <ul>
                     
@@ -27,18 +27,18 @@
                    
                 </ul>
             </div>
-        </div>
-         <div class="container  col-12 col-md-9">
+        </div> <!-- menu -->
+         <div class="container  col-12 col-md-9"> <!--formulario e grid -->
        
-            <div class="formulario">
+            <div class="formulario"> <!--formulario -->
                 <div class="row">
                     <div class="col-12">
                         <p class="pformulario">Cadastro de Usuários</p>
                     </div>
                 </div>
-                <form id="form1" runat="server">
+                <form id="form1" runat="server"> 
                     <div class="row">
-                        <div  class=" container col-12 col-md-5">
+                        <div  class=" container col-12 col-md-5"> <!-- componentes do formulario -->
                         
                                 <div class="row">
                                     <div class="col-12 divUsuario">
@@ -105,8 +105,8 @@
                                         </div>
                                     </div>
                              
-                        </div>
-                        <div  class=" container col-12 col-md-5 divUsuario">
+                        </div> <!-- componentes do formulario -->
+                        <div  class=" container col-12 col-md-5 divUsuario"> <!-- grid -->
                             
                                 <asp:GridView ID="gridUsuario" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" >
                                     <AlternatingRowStyle BackColor="White" />
@@ -118,7 +118,7 @@
                                     </Columns>
                                     <EditRowStyle BackColor="#7C6F57" />
                                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
                                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                                     <RowStyle BackColor="#E3EAEB" />
                                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
@@ -127,13 +127,13 @@
                                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                                     <SortedDescendingHeaderStyle BackColor="#15524A" />
                                 </asp:GridView>      
-                        </div>
+                        </div> <!-- grid -->
 
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
+            </div> <!--formulario -->
+        </div> <!-- formulario e grid-->
+    </div> <!--dentro desta tag está o menu e o formulario -->
     
          
 </body>
