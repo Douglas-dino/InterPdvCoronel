@@ -88,6 +88,9 @@
       <DependentUpon>ModelData.edmx</DependentUpon>
       <LastGenOutput>ModelData.cs</LastGenOutput>
     </Content>
+    <Content Include="Pagamento.aspx" />
+    <Content Include="Produtos.aspx" />
+    <Content Include="Relatorio.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Venda.aspx" />
     <Content Include="Web.config" />
@@ -118,13 +121,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Pagamento.aspx.cs">
+      <DependentUpon>Pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagamento.aspx.designer.cs">
+      <DependentUpon>Pagamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PAGAMENTO.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="PRODUTO.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Produtos.aspx.cs">
+      <DependentUpon>Produtos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Produtos.aspx.designer.cs">
+      <DependentUpon>Produtos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio.aspx.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorio.aspx.designer.cs">
+      <DependentUpon>Relatorio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="USUARIO.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>

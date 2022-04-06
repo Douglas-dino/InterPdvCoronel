@@ -24,15 +24,6 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controle lblUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
-
-        /// <summary>
         /// Controle lkbSair.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lkbSair;
+
+        /// <summary>
+        /// Controle lkbRelatorio.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbRelatorio;
 
         /// <summary>
         /// Controle lbkUsuario.
@@ -51,13 +51,13 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.LinkButton lbkUsuario;
 
         /// <summary>
-        /// Controle lblMsg.
+        /// Controle lblUsuario.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Label lblUsuario;
 
         /// <summary>
         /// Controle lblCodVenda.
@@ -67,5 +67,14 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodVenda;
+
+        /// <summary>
+        /// Controle lblMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

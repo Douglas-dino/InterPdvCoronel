@@ -41,7 +41,6 @@
 
 /*botão de logar*/
 #btnLogar {
-    
     width: 255px;
     height: 40px;
     background-color: #A4c939;
@@ -52,7 +51,15 @@
     color: white;
     margin-left: 50px;
     margin-top: 20px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#btnLogar:hover {
+    background-color: #2e2e2e;
+    color: #A4C639;
 }
 
 /*.buttonsenha {
@@ -96,26 +103,43 @@
 /*formulario geral*/
 .formulario {
     height: 100%;
-    width: 100%;
+    width: 80%;
     float: left;
     position: relative;
     border-style: solid;
     border-color: #A4C639;
-    padding: initial;
-    padding-bottom:5px;
+    padding-bottom: 5px;
     padding-left: 20px;
-    margin-left: 20px;
+    top: 80px;
+    left: 92px;
+    box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
 }
 
-/*.pformulario {
+.pformulario {
     margin-top: 30px;
     font-size: x-large;
     color: #A4C639;
-    margin-left: 400px;
-}*/
+    margin-left: 300px;
+}
 
 .divUsuario {
     margin-top: 10px;
+}
+header {
+    background-color: #2e2e2e;
+    width: 101%;
+    position: fixed;
+    top: 0px;
+    left: -6px;
+}
+
+footer {
+    background-color: #2e2e2e;
+    height: 65px;
+    width: 101%;
+    position: fixed;
+    left: -1px;
+    
 }
 
 
@@ -130,14 +154,14 @@ input {
 }
 
 #txtLogin, #drpNivel {
-    margin-left:15px;
+    margin-left:32px;
 }
 #txtLogin{
     width:158px;
 }
 
 #lblNivel, #lblLogin {
-    margin-left: 8px;
+    margin-left: 32px;
 }
 /*configurações de campos gerais*/
 .campos {
@@ -157,20 +181,31 @@ label {
     background-color: #A4C639;
     border-radius: 3px;
     color: white;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    display: inline-block;
+}
+ .btnCadastro:hover {
+    background-color: #2e2e2e;
+    color: #A4C639;
+}
+.botoes {
+    margin-left: 10px;
 }
 
 .divMenu {
-    margin-right: 50px;
-    width: 30px;
+    margin-right:80px;
+    width: 175px;
+    height: 126px;
 }
 
-/*#btncalcular {
-    margin-left: 280px
-}*/
+#lblCodVenda, #lblUsuario {
+    color: #A4C639;
+}
 
 img {
-    width: 202px;
-    height: 87px;
+    width: 201px;
+    height: 67px;
 }
 
 .divlista {
@@ -185,19 +220,20 @@ img {
 /*configurações de menu*/
 ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
-    width: 150px;
+    position:fixed;
+    width: 161px;
     background-color: rgba(233, 233, 233, 0.527);
-    position: fixed;
     overflow: auto;
-    top: 106px;
+    top: 109px;
     left: 0px;
+    height: 144px;
+    bottom: 310px;
 }
 
 li a.ativo {
-    background-color: #fdaa36;
-    color: white;
+    background-color: #2e2e2e;
+    color: #A4C639;
 }
 
 
@@ -211,9 +247,9 @@ li a {
     box-shadow: 1px 1px rgba(10, 10, 10, 0.616);
 }
 
-    li a:hover {
-        background-color: #2e2e2e;
-        color: #A4C639;
-    }
+li a:hover {
+    background-color: #2e2e2e;
+    color: #A4C639;
+}
         
 

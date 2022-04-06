@@ -20,11 +20,12 @@ namespace InterPdvCoronel
                
         }
 
+     
         private void GerarCodVenda()
         {
             coronelEntities conexao = new coronelEntities();
             //Busca o ultimo código de venda
-            VENDA venda =
+            VENDA venda = // Duvida sobre esse código
                 conexao.VENDA.OrderBy(
                     linha => linha.CODIGO).OrderByDescending(n => n.CODIGO).Take(1).Single();
                 int cod;
@@ -51,6 +52,23 @@ namespace InterPdvCoronel
             {
                 Response.Redirect("Usuarios.aspx");
             }
+            
+            
+        }
+
+        protected void lkbRelatorio_Click(object sender, EventArgs e)
+        {
+            // Verifica o nivel de acesso do usuário
+            if (Session["NIVEL"].Equals(1))
+            {
+                lblMsg.Text = "Acesso negado!";
+            }
+            else
+            {
+                Response.Redirect("Relatorio.aspx");
+            }
+
+            
         }
     }
 }
