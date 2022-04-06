@@ -25,8 +25,10 @@ namespace InterPdvCoronel
         {
             coronelEntities conexao = new coronelEntities();
             //Busca o ultimo código de venda
-            VENDA venda = // Duvida sobre esse código
+            VENDA venda = 
                 conexao.VENDA.OrderBy(
+                    /* Duvida sobre esse código, ele não retorna resultados vazios
+                       O lastorDefault não funcionou   */
                     linha => linha.CODIGO).OrderByDescending(n => n.CODIGO).Take(1).Single();
                 int cod;
                 cod = (venda.CODIGO) + 1; //Adiciona + 1 ao código de venda
