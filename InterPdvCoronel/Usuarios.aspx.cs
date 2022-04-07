@@ -11,8 +11,8 @@ namespace InterPdvCoronel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
-                Response.Redirect("Default.aspx");
+           // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
+               // Response.Redirect("Default.aspx");
                 atualizarGrid();
         }
 

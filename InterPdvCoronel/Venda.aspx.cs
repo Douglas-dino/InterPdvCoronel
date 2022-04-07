@@ -12,9 +12,9 @@ namespace InterPdvCoronel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
-                Response.Redirect("Default.aspx");
-            lblUsuario.Text =  Session["LOGIN"].ToString();
+            //if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
+                //Response.Redirect("Default.aspx");
+            //lblUsuario.Text =  Session["LOGIN"].ToString();
 
             GerarCodVenda();
                
@@ -33,7 +33,7 @@ namespace InterPdvCoronel
                 int cod;
                 cod = (venda.CODIGO) + 1; //Adiciona + 1 ao código de venda
             
-                lblCodVenda.Text = cod.ToString(); //Novo código de venda
+                lblCodVenda.Text = "Codigo Venda:" + cod.ToString(); //Novo código de venda
             
         }
        

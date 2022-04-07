@@ -5,6 +5,7 @@
     width: 996px;
     margin-top: 13px;
 }
+/*imagem do login*/
 
 /* formullario do login*/
 .formLogin {
@@ -16,20 +17,9 @@
     margin-top: 150px;
     border-width: 2px;
 }
+/* formullario do login*/
 
-/*.form {
-    width: 300px;
-    height: 30px;
-    border-radius: 3px;
-    border-color: #d3d3d3;
-    background-color: transparent;
-    font-family: Verdana;
-    border-style: groove;
-    margin-left: 10px
-}*/
-.formulario{
-    margin-bottom:100px;
-}
+
 /*campos do login*/
 #txtUsuario, #txtSenha {
     padding: 10px;
@@ -37,9 +27,10 @@
     width:230px;
     margin-top: 20px;
 }
+/*campos do login*/
 
 
-/*botão de logar*/
+/*botão de logar login*/
 #btnLogar {
     width: 255px;
     height: 40px;
@@ -61,10 +52,8 @@
     background-color: #2e2e2e;
     color: #A4C639;
 }
+/*botão de logar login*/
 
-/*.buttonsenha {
-    margin-left: 100px;
-}*/
 
 /*imagem do formulario login*/
 .login {
@@ -81,6 +70,8 @@
     color: red;
 }
 /* label de direitos autorais*/
+
+/* copy login*/
 .copy{
     margin-top:120px;
 }
@@ -89,16 +80,8 @@
     font-style: italic;
     color: #A4c939;
 }
+/* copy login*/
 
-/*.logo {
-    height: 60px;
-    width: 200px;
-    float: left;
-    border-bottom-style: solid;
-    border-right-style: solid;
-    border-color: #A4C639;
-    border-width: thin;
-}*/
 
 /*formulario geral*/
 .formulario {
@@ -110,10 +93,19 @@
     border-color: #A4C639;
     padding-bottom: 5px;
     padding-left: 20px;
+    margin-bottom: 100px;
     top: 80px;
     left: 92px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
 }
+/*formulario geral*/
+
+/*tamaho do form pag venda, pagamento, relatorio, produto*/
+.posicaoForm{
+    padding-bottom:250px;
+}
+/*tamaho do form pag venda, pagamento, relatorio, produto*/
+
 
 .pformulario {
     margin-top: 30px;
@@ -142,13 +134,19 @@ footer {
     
 }
 
+/*posição rodape pag venda, pagamento, relatorio, produto*/
+.rodPosicao{
+    top:600px;
+}
+/*posição rodape pag venda, pagamento, relatorio, produto*/
+
 
 input {
     border: thin solid black;
     border-radius: 2px;
     
 }
-
+/* campos da pag usuatio*/
 #txtNome, #txtSobrenome{
     width:350px;
 }
@@ -163,12 +161,14 @@ input {
 #lblNivel, #lblLogin {
     margin-left: 32px;
 }
+/* campos da pag usuatio*/
+
 /*configurações de campos gerais*/
 .campos {
     height: 30px;
     font-family: Verdana;
 }
-
+/*configurações de campos gerais*/
 label {
     padding: 5px;
     display: block;
@@ -189,16 +189,24 @@ label {
     background-color: #2e2e2e;
     color: #A4C639;
 }
+/*botões do forulario*/
 .botoes {
     margin-left: 10px;
 }
 
-.divMenu {
-    margin-right:80px;
-    width: 175px;
-    height: 126px;
+/*campos qtd subtot da pag venda*/
+#txtQtd, #txtSubtotal {
+    margin-left: 32px;
 }
 
+#sub, #qtd {
+    margin-left: 32px;
+}
+/*campos qtd subtot da pag venda*/
+
+#txtProduto{
+    width:370px;
+}
 #lblCodVenda, #lblUsuario {
     color: #A4C639;
 }
@@ -208,16 +216,16 @@ img {
     height: 67px;
 }
 
-.divlista {
-    float: right;
-    border-style: solid;
-    border-width: thin;
-    width: 500px;
-    height: 100%;
-    margin-right: 60px;
-}
+
 
 /*configurações de menu*/
+
+.divMenu {
+    margin-right: 80px;
+    width: 175px;
+    height: 126px;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -251,5 +259,5 @@ li a:hover {
     background-color: #2e2e2e;
     color: #A4C639;
 }
-        
+/*configurações de menu*/        
 

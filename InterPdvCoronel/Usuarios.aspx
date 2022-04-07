@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" rel="stylesheet" />
-    <link href="estilos/login.css" rel="stylesheet" />
+    <link href="estilos/estilo.css" rel="stylesheet" />
     <title>Gestão de Usuários</title>
 
      
@@ -22,8 +22,8 @@
                        <div class ="divMenu">
                            <ul>
                                <li><a class="ativo" href="Venda.aspx">Voltar</a></li>
-                               <li><a>Relatório</a></li>
-                               <li><a>Produto</a></li>
+                               <li><a href="Relatorio.aspx">Relatório</a></li>
+                               <li><a href="Produtos.aspx">Produto</a></li>
                            </ul>
                        </div>
                    </div><!-- menu -->
