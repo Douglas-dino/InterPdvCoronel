@@ -16,7 +16,7 @@ namespace InterPdvCoronel
                 //Response.Redirect("Default.aspx");
             //lblUsuario.Text =  Session["LOGIN"].ToString();
 
-            GerarCodVenda();
+            //GerarCodVenda();
                
         }
 
