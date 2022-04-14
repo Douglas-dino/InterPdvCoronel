@@ -17,17 +17,14 @@ namespace InterPdvCoronel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public VENDA()
         {
-            this.ITEM_VENDA = new HashSet<ITEM_VENDA>();
             this.PAGAMENTO = new HashSet<PAGAMENTO>();
         }
     
         public int CODIGO { get; set; }
         public System.DateTime DATA { get; set; }
-        public System.TimeSpan HORA { get; set; }
+        public string HORA { get; set; }
         public decimal VALOR { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ITEM_VENDA> ITEM_VENDA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PAGAMENTO> PAGAMENTO { get; set; }
     }

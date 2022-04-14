@@ -4,9 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace InterPdvCoronel
 {
+
+
+    
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -31,6 +35,7 @@ namespace InterPdvCoronel
 
                 if (user != null)
                 {
+                    DataTable dt = new DataTable();
                     //verifica se o usuário está ativo ou inativo
                     if (user.STATUS.Equals("I"))
                     {
@@ -40,6 +45,7 @@ namespace InterPdvCoronel
                     {
                         Session["LOGIN"] = user.NOME; // Guarda o nome do usuário
                         Session["NIVEL"] = user.NIVEL;// Guarda o nivel de acesso do usuário
+                        Session["dt"] = dt;
                         Response.Redirect("Venda.aspx");
                     }
 

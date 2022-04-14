@@ -21,6 +21,5 @@ namespace InterPdvCoronel
         public int QUANTIDADE { get; set; }
     
         public virtual PRODUTO PRODUTO { get; set; }
-        public virtual VENDA VENDA { get; set; }
     }
 }

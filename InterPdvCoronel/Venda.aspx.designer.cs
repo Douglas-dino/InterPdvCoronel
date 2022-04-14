@@ -42,6 +42,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.LinkButton lkbRelatorio;
 
         /// <summary>
+        /// Controle lkbProduto.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbProduto;
+
+        /// <summary>
         /// Controle lbkUsuario.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbkUsuario;
+
+        /// <summary>
+        /// Controle lblCodigo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodigo;
 
         /// <summary>
         /// Controle txtCodigo.
@@ -60,6 +78,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
+        /// Controle qtd.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label qtd;
+
+        /// <summary>
         /// Controle txtQtd.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQtd;
+
+        /// <summary>
+        /// Controle lblVal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVal;
 
         /// <summary>
         /// Controle txtVal_Unit.
@@ -78,6 +114,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.TextBox txtVal_Unit;
 
         /// <summary>
+        /// Controle sub.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label sub;
+
+        /// <summary>
         /// Controle txtSubtotal.
         /// </summary>
         /// <remarks>
@@ -87,6 +132,24 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.TextBox txtSubtotal;
 
         /// <summary>
+        /// Controle hfTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfTotal;
+
+        /// <summary>
+        /// Controle lblTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
+
+        /// <summary>
         /// Controle txtTotal.
         /// </summary>
         /// <remarks>
@@ -94,6 +157,42 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
+
+        /// <summary>
+        /// Controle btnInserir.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInserir;
+
+        /// <summary>
+        /// Controle btnFinalizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFinalizar;
+
+        /// <summary>
+        /// Controle lblMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
+        /// <summary>
+        /// Controle lblProduto.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProduto;
 
         /// <summary>
         /// Controle txtProduto.
@@ -114,6 +213,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.GridView gridVenda;
 
         /// <summary>
+        /// Controle btnExcluirVen.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcluirVen;
+
+        /// <summary>
         /// Controle lblUsuario.
         /// </summary>
         /// <remarks>
@@ -130,14 +238,5 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodVenda;
-
-        /// <summary>
-        /// Controle lblMsg.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

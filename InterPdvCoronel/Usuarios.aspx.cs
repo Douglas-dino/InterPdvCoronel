@@ -72,7 +72,7 @@ namespace InterPdvCoronel
                     gridUsuario.SelectedIndex = -1;
                 }
                 else
-                {// alterar
+                {// adcionando
 
                     USUARIO u = new USUARIO();
                     u.NOME = txtNome.Text;

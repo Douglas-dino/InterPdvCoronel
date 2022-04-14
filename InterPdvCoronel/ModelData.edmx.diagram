@@ -5,14 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2434e50ebe4440489aa27cb109cf14e6" Name="Diagram1">
-        <EntityTypeShape EntityType="CORONELModel.ITEM_VENDA" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CORONELModel.PAGAMENTO" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CORONELModel.PRODUTO" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CORONELModel.USUARIO" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CORONELModel.VENDA" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
-        <AssociationConnector Association="CORONELModel.FK_ITEM_VENDA_PRODUTO" ManuallyRouted="false" />
-        <AssociationConnector Association="CORONELModel.FK_ITEM_VENDA_VENDA" ManuallyRouted="false" />
-        <AssociationConnector Association="CORONELModel.FK_PAGAMENTO_VENDA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CORONELModel.ITEM_VENDA" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="CORONELModel.PAGAMENTO" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="CORONELModel.PRODUTO" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="CORONELModel.USUARIO" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CORONELModel.VENDA" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="CORONELModel.FK_ITEM_VENDA_PRODUTO" />
+        <AssociationConnector Association="CORONELModel.FK_PAGAMENTO_VENDA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
