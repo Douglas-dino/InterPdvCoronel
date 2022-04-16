@@ -15,7 +15,7 @@
         <img src="imagens/logo2.png" />
     </header>
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="conatainer">
             <div class="row">
                 <div class="col-12 col-md-2 container"><!-- menu -->
                        <div class ="divMenu">
@@ -127,7 +127,7 @@
                  </div>
 
             </div>
-        </div>
+         </div> <!-- -->
                             
             <footer class="rodPosicao">
                 <div class="container">
