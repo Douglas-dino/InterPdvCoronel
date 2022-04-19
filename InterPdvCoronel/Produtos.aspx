@@ -18,22 +18,15 @@
             <div class="row">
                 <div class="col-12 col-md-2 container"><!-- menu -->
                        <div class ="divMenu">
-                           
-                             <ul>
-                                <li><a href="Venda.aspx">Vendas</a></li>
-                                <li><a href="Venda.aspx">Gerenciamentor</a></li>
-                                <li><a href="Venda.aspx">cadastro</a></li>
-                                <li><a href="Venda.aspx">Configurações</a></li>
-                                <li><a href="Venda.aspx">Sair</a></li>
+                           <ul>
+                               <li><a href="Venda.aspx">Volta</a></li>
+                                <li><a href="Venda.aspx">Voltar</a></li>
+                                <li><a href="Venda.aspx">Voltar</a></li>
+                                <li><a href="Venda.aspx">Voltar</a></li>
                                <
-                             </ul>
-                        
+                           </ul>
                        </div>
-                  </div>
-                </div>
-        
-                <!-- menu -->
-
+                  </div><!-- menu -->
                   <div class="formulario col-12 col-md-10 container posicaoForm">
                        <div class="row">
                             <div class="col-12">
@@ -45,30 +38,10 @@
 
                                 <!-- componentes do formulario -->
 
-                                <asp:Label ID="Label1" runat="server" Text="Label">CÓDIGO:</asp:Label>
-                                <asp:TextBox ID="CODIGO" runat="server"></asp:TextBox>
-
-                                <asp:Label ID="Label2" runat="server" Text="Label">CÓDIGO DE BARRAS:</asp:Label>
-                                <asp:TextBox ID="COD_BARRA" runat="server"></asp:TextBox>
-
-                                <asp:Label ID="Label3" runat="server" Text="Label">NOME:</asp:Label>
-                                <asp:TextBox ID="NOME" runat="server"></asp:TextBox>
-
-                                <asp:Label ID="Label4" runat="server" Text="Label">DESCRIÇÃO:</asp:Label>
-                                <asp:TextBox ID="DESCRICAO" runat="server"></asp:TextBox>
-
-                                <asp:Label ID="Label5" runat="server" Text="Label">QUANTIDADE EM ESTOQUE:</asp:Label>
-                                <asp:TextBox ID="QTD_ESTOQUE" runat="server"></asp:TextBox>
-
-                                <asp:Label ID="Label6" runat="server" Text="Label">VALOR(R$):</asp:Label>
-                                <asp:TextBox ID="VALOR" runat="server"></asp:TextBox>
-
                             </div>
                             <div class="container col-12 col-md-5">
 
                                 <!-- grid -->
-
-                                <asp:GridView ID="CAD_PRODUTOS" runat="server"></asp:GridView>
 
                             </div>
                         </div>
