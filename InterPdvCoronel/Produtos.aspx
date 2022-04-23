@@ -41,22 +41,22 @@
                                 <!-- componentes do formulario -->
 
                                 <asp:Label ID="Label1" runat="server" Text="Label">Código:</asp:Label>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="CODIGO" runat="server"></asp:TextBox>
 
                                 <asp:Label ID="Label2" runat="server" Text="Label">Código de Barras:</asp:Label>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="COD_BARRA" runat="server"></asp:TextBox>
 
                                 <asp:Label ID="Label3" runat="server" Text="Label">Nome:</asp:Label>
-                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="NOME" runat="server"></asp:TextBox>
 
                                 <asp:Label ID="Label4" runat="server" Text="Label">Descrição:</asp:Label>
-                                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="DESCRICAO" runat="server"></asp:TextBox>
 
                                 <asp:Label ID="Label5" runat="server" Text="Label">Quantidade em Estoque:</asp:Label>
-                                <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="QTD_ESTOQUE" runat="server"></asp:TextBox>
 
                                 <asp:Label ID="Label6" runat="server" Text="Label">Valor:</asp:Label>
-                                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="VALOR" runat="server"></asp:TextBox>
 
                                 <asp:Button ID="Cadastrar" runat="server" Text="Cadastrar" />
                               
