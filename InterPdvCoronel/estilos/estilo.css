@@ -1,4 +1,10 @@
-﻿/*imagem do login*/
+﻿body{
+    font-family:Verdana;
+   
+}
+
+
+/*imagem do login*/
 .fundo {
     
     height: 651px;
@@ -85,7 +91,7 @@
 
 /*formulario geral*/
 .formulario {
-    height: 100%;
+    height: 361px;
     width: 80%;
     float: left;
     position: relative;
@@ -121,7 +127,8 @@
 
 
 header {
-    background-color: #2e2e2e;
+    border-style: solid;
+    border-color: #A4C639;
     width: 101%;
     position: fixed;
     top: 0px;
@@ -129,12 +136,12 @@ header {
 }
 
 footer {
-    background-color: #2e2e2e;
+    border-style: solid;
+    border-color: #A4C639;
     height: 65px;
     width: 101%;
     position: fixed;
     left: -1px;
-    
 }
 
 /*posição rodape pag venda, pagamento, relatorio, produto*/
@@ -182,7 +189,6 @@ input {
 
 table {
     border: 1px #c0c0c0 solid;
-    width: 100%;
     margin-right: 0px;
 }
 
@@ -246,7 +252,7 @@ label {
 }
 
 img {
-    width: 201px;
+    width: 221px;
     height: 67px;
 }
 
@@ -258,19 +264,21 @@ img {
     margin-right: 80px;
     width: 175px;
     height: 126px;
+    border-style: solid;
+    border-color: #A4C639;
 }
 
 ul {
     list-style-type: none;
     padding: 0;
     position:fixed;
-    width: 161px;
+    width: 245px;
     background-color: rgba(233, 233, 233, 0.527);
     overflow: auto;
-    top: 109px;
-    left: 0px;
+    top: 22px;
+    left: 235px;
     height: 144px;
-    bottom: 310px;
+    bottom: 397px;
 }
 
 li a.ativo {
@@ -298,5 +306,4 @@ li a:hover {
     background-color: #2e2e2e;
     color: #A4C639;
 }
-/*configurações de menu*/        
-
+/*configurações de menu*/

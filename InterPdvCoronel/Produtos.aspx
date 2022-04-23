@@ -28,7 +28,7 @@
                            </ul>
                        </div>
                   </div><!-- menu -->
-                  <div class="formulario col-12 col-md-10 container posicaoForm">
+                  <div class="formulario col-12 col-md-10 container posicaoForm" width="1000px" heigth="2000px">
                        <div class="row">
                             <div class="col-12">
                                 <p class="pformulario">Cadastro de Produtos</p>
@@ -58,6 +58,7 @@
                                 <asp:Label ID="Label6" runat="server" Text="Label">Valor:</asp:Label>
                                 <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
 
+                                <asp:Button ID="Cadastrar" runat="server" Text="Cadastrar" />
                               
 
                             </div>
@@ -65,7 +66,7 @@
 
                                 <!-- grid -->
 
-                                <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView ID="GridView1" runat="server" ></asp:GridView>
 
 
 
