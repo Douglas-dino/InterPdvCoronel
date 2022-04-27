@@ -1,0 +1,178 @@
+﻿header {
+    border-style: solid;
+    border-color: #A4C639;
+    background-color: #2e2e2e;
+    width: 101%;
+    position: fixed;
+    top: 0px;
+    left: -6px;
+    height: 45px;
+    
+}
+img {
+    width: 221px;
+    height: 67px;
+    top:20px;
+}
+.camposVenda {
+    height: 30px;
+    font-family: 'Calisto MT';
+    width: 120px;
+    font: bold;
+}
+
+input {
+    border: thin solid black;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+}
+
+#lblMsg {
+    margin-left: 50px;
+    font-family: Verdana;
+    font-size: 12px;
+    color: red;
+}
+
+/*campos qtd subtot da pag venda*/
+#txtQtd, #txtSubtotal {
+    margin-left:40px;
+}
+
+#sub, #qtd {
+    margin-left: 40px;
+}
+/*campos qtd subtot da pag venda*/
+
+#txtProduto {
+    width: 480px;
+    height: 30px;
+}
+
+.divExcluir {
+    
+}
+
+.btnExcluir {
+    margin-left: 400px;
+    margin-top: 355px;
+    position:fixed;
+    
+}
+/*botões do forulario*/
+
+.btnCadastro {
+    height: 28px;
+    width: 100px;
+    border-style: none;
+    background-color: #A4C639;
+    border-radius: 3px;
+    color: white;
+    transition-duration: 0.1s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btnCadastro:hover {
+    background-color: #2e2e2e;
+    color: #A4C639;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+}
+
+.botoes {
+    margin-left: 30px;
+}
+
+#btnInserir, #btnFinalizar, #btnExcluirVen {
+    width: 80px;
+}
+
+#lblCodVenda, #lblUsuario {
+    color: #A4C639;
+}
+
+
+.divUsuario {
+    margin-top: 10px;
+}
+
+footer {
+    border-style: solid;
+    border-color: #A4C639;
+    background-color: #2e2e2e;
+    height: 45px;
+    width: 101%;
+    position: fixed;
+    left: -3px;
+    margin-top:10px;
+}
+
+.rodPosicao {
+    top: 600px;
+}
+
+.formulario {
+    height: 500px;
+    width: 1000px;
+    border-style: solid;
+    border-color: #A4C639;
+    padding-bottom: 5px;
+    left: 300px;
+    box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
+    margin-top:60px;
+    position:fixed;
+}
+
+ul {
+    list-style-type: none;
+    position:fixed;
+    margin-top: 60px;
+    padding:inherit;
+    width: 200px;
+    top: 5px;
+    height: 150px;
+    right: 1150px;
+}
+
+li a.ativo {
+    background-color: #2e2e2e;
+    color: #A4C639;
+}
+
+li a.ativoMenu {
+    background-color: #2e2e2e;
+    color: red;
+}
+
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #555;
+    box-shadow: 1px 1px rgba(10, 10, 10, 0.616);
+    background-color: rgba(233, 233, 233, 0.527);
+    margin-left: 1px;
+    border-style: solid;
+    border-color: #A4C639;
+}
+
+li a:hover {
+    background-color: #2e2e2e;
+    color: #A4C639;
+}
+
+#gridVenda{
+    width: 485px;
+    position:fixed;
+
+}
+
+
+     

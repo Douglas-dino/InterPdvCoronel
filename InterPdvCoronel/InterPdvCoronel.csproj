@@ -76,7 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
-    <Content Include="estilos\estilo.css" />
+    <Content Include="estilos\estilo_login.css" />
+    <Content Include="estilos\estilo_produto.css" />
+    <Content Include="estilos\estilo_usuario.css" />
+    <Content Include="estilos\estilo_venda.css" />
     <Content Include="javascript\mensagens.js" />
     <Content Include="ModelData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

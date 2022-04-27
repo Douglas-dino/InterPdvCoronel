@@ -1,0 +1,96 @@
+﻿
+/*imagem do login*/
+.fundo {
+    
+    height: 651px;
+    width: 996px;
+    margin-top: 13px;
+}
+/*imagem do login*/
+
+/* formullario do login*/
+.formLogin {
+    border-style: solid;
+    border-color: #A4C639;
+    width: 350px;
+    height: 400px;
+    
+    margin-top: 150px;
+    border-width: 2px;
+}
+/* formullario do login*/
+
+
+/*campos do login*/
+#txtUsuario, #txtSenha {
+    padding: 10px;
+    margin-left:50px;
+    width:230px;
+    margin-top: 20px;
+}
+/*campos do login*/
+
+
+/*botão de logar login*/
+#btnLogar {
+    width: 253px;
+    height: 40px;
+    background-color: #A4c939;
+    border-radius: 3px;
+    border-style: none;
+    font-family: Verdana;
+    font-size: large;
+    color: white;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition-duration: 0.1s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+    #btnLogar:hover {
+        background-color: #2e2e2e;
+        color: #A4C639;
+        border-style: solid;
+        border-color: #A4C639;
+        border-width: 2px;
+    }
+/*botão de logar login*/
+
+
+/*imagem do formulario login*/
+.login {
+    margin-left: 60px;
+    width: 236px;
+    height: 83px;
+}
+
+/*mesagens*/
+#lblMsg {
+    margin-left: 50px;
+    font-family: Verdana;
+    font-size:12px;
+    color: red;
+}
+/* label de direitos autorais*/
+
+/* copy login*/
+.copy{
+    margin-top:120px;
+}
+.rotulo {
+    margin-left: 135px;
+    font-style: italic;
+    color: #A4c939;
+}
+/* copy login*/
+
+
+input {
+    border: thin solid black;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+}

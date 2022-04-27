@@ -14,5 +14,20 @@ namespace InterPdvCoronel
            // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
                 //Response.Redirect("Default.aspx");
         }
+
+        protected void btnNovo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

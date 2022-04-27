@@ -195,20 +195,20 @@ namespace InterPdvCoronel
             else
             {
                 
-                if (qtd_unit < Convert.ToUInt32(txtQtd.Text))
+               /* if (qtd_unit < Convert.ToUInt32(txtQtd.Text))
                 {
                     // verifica se há quntidade suficiente no estoque
                     lblMsg.Text = "Este produto possui " + qtd_unit + " unidades no estoque";
                     LimparControles(this.Page.Form.Controls);
                     return;
-                }
-                else
-                {
+                }*/
+                
+                
                     buscarProduto();
                     gruardaItemVenda();
                     atualizarGrid();
                     Limpar();
-                }
+                
                 
             }
             
