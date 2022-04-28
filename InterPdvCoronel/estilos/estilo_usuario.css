@@ -37,11 +37,11 @@ input {
 
 
 #txtNome, #txtSobrenome {
-    width: 350px;
+    width: 370px;
 }
 
 #txtLogin, #drpNivel {
-    margin-left: 32px;
+    margin-left: 52px;
 }
 
 #txtLogin {
@@ -49,7 +49,7 @@ input {
 }
 
 #lblNivel, #lblLogin {
-    margin-left: 32px;
+    margin-left: 52px;
 }
 
 .pformulario {
@@ -88,11 +88,11 @@ input {
 }
 
 .botoes {
-    margin-top:90px;
+    margin-top:80px;
 }
 
 #drpStatus{
-    margin-left:30px;
+    margin-left:50px;
 }
 
 
@@ -102,7 +102,7 @@ input {
 }
 
 #status{
-    margin-left:30px;
+    margin-left:50px;
 }
 
 footer {

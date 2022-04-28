@@ -36,11 +36,11 @@ input {
 }
 
 #COD_BARRA, #VALOR, #lblValor, #lblBarra{
-    margin-left:40px;
+    margin-left:50px;
 }
 
 #NOME, #DESCRICAO {
-    width: 345px;
+    width: 375px;
 }
 
 .pformulario {

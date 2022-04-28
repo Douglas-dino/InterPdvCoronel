@@ -69,8 +69,8 @@
                                     </div>
                                     <div class="col-12 col-md-2 divUsuario">
                                         <label id="lblNivel">Nivel:</label>
-                                        <asp:DropDownList ID="drpNivel" runat="server" CssClass="campos">
-                                            <asp:ListItem Value="1"></asp:ListItem>
+                                        <asp:DropDownList ID="drpNivel" runat="server" CssClass="campos" OnSelectedIndexChanged="drpNivel_SelectedIndexChanged">
+                                            <asp:ListItem Value="1" Selected="True"></asp:ListItem>
                                             <asp:ListItem Value="2"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>

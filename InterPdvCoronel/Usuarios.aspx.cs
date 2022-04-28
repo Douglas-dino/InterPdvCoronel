@@ -13,7 +13,7 @@ namespace InterPdvCoronel
         {
            // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
                // Response.Redirect("Default.aspx");
-                atualizarGrid();
+               // atualizarGrid();
         }
 
         private void atualizarGrid()
@@ -139,6 +139,11 @@ namespace InterPdvCoronel
                 LimparControles(this.Page.Form.Controls);
 
             }
+
+        }
+
+        protected void drpNivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

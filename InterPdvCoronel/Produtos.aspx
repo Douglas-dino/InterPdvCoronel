@@ -41,7 +41,7 @@
                                 <div class="row">
                                     <div class="col-12 col-md-5 divUsuario">
                                          <asp:Label ID="Label1" runat="server" Text="Código:"></asp:Label>
-                                         <asp:TextBox ID="CODIGO" runat="server" CssClass="campos"></asp:TextBox>
+                                         <asp:TextBox ID="CODIGO" runat="server" CssClass="campos" Enabled="False" ReadOnly="True"></asp:TextBox>
                                     </div>
                                     <div class="col-12 col-md-5 divUsuario">
                                          <asp:Label ID="lblBarra" runat="server" Text="Cod_Barras:"></asp:Label>
