@@ -24,6 +24,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle lkbVenda.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbVenda;
+
+        /// <summary>
         /// Controle lkbRelatorio.
         /// </summary>
         /// <remarks>
@@ -31,15 +40,6 @@ namespace InterPdvCoronel
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lkbRelatorio;
-
-        /// <summary>
-        /// Controle lkbProduto.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbProduto;
 
         /// <summary>
         /// Controle lbkUsuario.
@@ -159,6 +159,15 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.TextBox VALOR;
 
         /// <summary>
+        /// Controle lblMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
+        /// <summary>
         /// Controle btnNovo.
         /// </summary>
         /// <remarks>
@@ -186,12 +195,12 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.Button btnExcluir;
 
         /// <summary>
-        /// Controle GridView1.
+        /// Controle gridProduto.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gridProduto;
     }
 }

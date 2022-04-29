@@ -54,7 +54,6 @@
                                </div>
                                <div class="row">
                                    <div class="col-12 col-md-5 divUsuario"> 
-                                       <asp:HiddenField ID="hfTotal" runat="server" Value="valor" ViewStateMode="Enabled" />
                                        <asp:Label ID="lblTotal" runat="server" Text="Total:" CssClass="rotulosl"></asp:Label>
                                        <asp:TextBox ID="txtTotal" runat="server" CssClass="camposVenda" ViewStateMode="Enabled"></asp:TextBox>
                                    </div>

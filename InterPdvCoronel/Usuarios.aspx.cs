@@ -13,7 +13,7 @@ namespace InterPdvCoronel
         {
            // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
                // Response.Redirect("Default.aspx");
-               // atualizarGrid();
+                atualizarGrid();
         }
 
         private void atualizarGrid()
@@ -53,49 +53,60 @@ namespace InterPdvCoronel
         {
             using(coronelEntities conexao = new coronelEntities())
             {
-                //Verifica se esstá inserindo ou atualizando
-                if(gridUsuario.SelectedValue != null)
-                {//atualizando
-                    
-                    USUARIO u = conexao.USUARIO.FirstOrDefault(
-                        linha => linha.CODIGO.ToString().Equals(gridUsuario.SelectedValue.ToString())
-                        );
-
-                    u.NOME = txtNome.Text;
-                    u.SOBRENOME = txtSobrenome.Text;
-                    u.CPF = txtCpf.Text;
-                    u.LOGIN = txtLogin.Text;
-                    u.SENHA = txtSenhaCad.Text;
-                    u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
-                    u.STATUS = drpStatus.SelectedValue;
-                    conexao.Entry(u);
-                    atualizarGrid();
-                    gridUsuario.SelectedIndex = -1;
+                if(txtNome.Text.Equals("") || txtSobrenome.Text.Equals("") || txtCpf.Text.Equals("") ||
+                    txtLogin.Text.Equals("") || txtSenhaCad.Text.Equals(""))
+                {
+                    lblMsg.Text = "Preencha o formulário";
                 }
                 else
-                {// adcionando
+                {
+                    lblMsg.Text = string.Empty;
+                    //Verifica se esstá inserindo ou atualizando
+                    if (gridUsuario.SelectedValue != null)
+                    {//atualizando
 
-                    USUARIO u = new USUARIO();
-                    u.NOME = txtNome.Text;
-                    u.SOBRENOME = txtSobrenome.Text;
-                    u.CPF = txtCpf.Text;
-                    u.LOGIN = txtLogin.Text;
-                    u.SENHA = txtSenhaCad.Text;
-                    u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
-                    u.STATUS = drpStatus.SelectedValue;
-                    conexao.USUARIO.Add(u);
-                    gridUsuario.SelectedIndex = -1;
+                        USUARIO u = conexao.USUARIO.FirstOrDefault(
+                            linha => linha.CODIGO.ToString().Equals(gridUsuario.SelectedValue.ToString())
+                            );
 
+                        u.NOME = txtNome.Text;
+                        u.SOBRENOME = txtSobrenome.Text;
+                        u.CPF = txtCpf.Text;
+                        u.LOGIN = txtLogin.Text;
+                        u.SENHA = txtSenhaCad.Text;
+                        u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
+                        u.STATUS = drpStatus.SelectedValue;
+                        conexao.Entry(u);
+                        atualizarGrid();
+                        gridUsuario.SelectedIndex = -1;
+                    }
+                    else
+                    {// adcionando
+
+                        USUARIO u = new USUARIO();
+                        u.NOME = txtNome.Text;
+                        u.SOBRENOME = txtSobrenome.Text;
+                        u.CPF = txtCpf.Text;
+                        u.LOGIN = txtLogin.Text;
+                        u.SENHA = txtSenhaCad.Text;
+                        u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
+                        u.STATUS = drpStatus.SelectedValue;
+                        conexao.USUARIO.Add(u);
+                        gridUsuario.SelectedIndex = -1;
+
+                    }
+                    conexao.SaveChanges();
+                    atualizarGrid();
+                    LimparControles(this.Page.Form.Controls);
                 }
-                conexao.SaveChanges();
-                atualizarGrid();
-                LimparControles(this.Page.Form.Controls);
+                
             }
         }
 
         protected void gridUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using(coronelEntities conexao  = new coronelEntities())
+            lblMsg.Text = string.Empty;
+            using (coronelEntities conexao  = new coronelEntities())
             {
                 int IdSlecionado = Convert.ToInt32(gridUsuario.SelectedValue.ToString());
 
@@ -117,34 +128,40 @@ namespace InterPdvCoronel
 
         protected void btnNovo_Click(object sender, EventArgs e)
         {
+            lblMsg.Text = string.Empty;
             LimparControles(this.Page.Form.Controls);
 
         }
 
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
-            
-            using (coronelEntities conexao = new coronelEntities())
+            if (gridUsuario.SelectedIndex.Equals(-1))
             {
-                int IdSlecionado = Convert.ToInt32(gridUsuario.SelectedValue.ToString());
-
-                USUARIO u = conexao.USUARIO.FirstOrDefault(
-                    linha => linha.CODIGO.ToString().Equals(IdSlecionado.ToString())
-                    );
-
-                conexao.USUARIO.Remove(u);
-                gridUsuario.SelectedIndex = -1;
-                conexao.SaveChanges();
-                atualizarGrid();
-                LimparControles(this.Page.Form.Controls);
-
+                lblMsg.Text = "Selecione um cadastro para excluir.";
             }
+            else
+            {
+                lblMsg.Text = string.Empty;
+                using (coronelEntities conexao = new coronelEntities())
+                {
+                    int IdSlecionado = Convert.ToInt32(gridUsuario.SelectedValue.ToString());
+
+                    USUARIO u = conexao.USUARIO.FirstOrDefault(
+                        linha => linha.CODIGO.ToString().Equals(IdSlecionado.ToString())
+                        );
+
+                    conexao.USUARIO.Remove(u);
+                    gridUsuario.SelectedIndex = -1;
+                    conexao.SaveChanges();
+                    atualizarGrid();
+                    LimparControles(this.Page.Form.Controls);
+
+                }
+            }
+           
 
         }
 
-        protected void drpNivel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -20,9 +20,9 @@
                        
                            <ul>
                                
-                               <li><asp:LinkButton ID="lkbRelatorio"  runat="server"  Text="Voltar" CssClass="ativo"></asp:LinkButton></li>
-                               <li><asp:LinkButton ID="lkbProduto"  runat="server" Text="Relatório"></asp:LinkButton></li>
-                               <li><asp:LinkButton ID="lbkUsuario"  runat="server" Text="Gestão de Usuário"></asp:LinkButton></li>
+                               <li><asp:LinkButton ID="lkbVenda"  runat="server"  Text="Voltar" CssClass="ativo" href="Venda.aspx"></asp:LinkButton></li>
+                               <li><asp:LinkButton ID="lkbRelatorio"  runat="server" Text="Relatório" OnClick="lkbRelatorio_Click"></asp:LinkButton></li>
+                               <li><asp:LinkButton ID="lbkUsuario"  runat="server" Text="Gestão de Usuário" OnClick="lbkUsuario_Click"></asp:LinkButton></li>
                               
                            </ul>
                        
@@ -81,6 +81,11 @@
                                         <asp:TextBox ID="VALOR" runat="server" CssClass="campos"></asp:TextBox>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                         <asp:Label ID="lblMsg" runat="server" CssClass="divUsuario" ></asp:Label>
+                                    </div>
+                                </div>
                                  <div class="row">
                                     <div class="col-12 col-md-3 botoes">
                                         <asp:Button ID="btnNovo" CssClass="btnCadastro" runat="server"
@@ -92,7 +97,7 @@
                                     </div>
                                     <div class="col-12 col-md-3 botoes">
                                         <asp:Button ID="btnExcluir" CssClass="btnCadastro" runat="server"
-                                            Text="Excluir" OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir este usuário?')"/>
+                                            Text="Excluir" OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir este produto?')"/>
                                     </div>
                                 </div>
                                
@@ -101,7 +106,25 @@
 
                                 <!-- grid -->
 
-                                <asp:GridView ID="GridView1" runat="server" ></asp:GridView>
+                                <asp:GridView ID="gridProduto" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="CODIGO" OnSelectedIndexChanged="gridProduto_SelectedIndexChanged" >
+                                    <AlternatingRowStyle BackColor="#CCCCCC" />
+                                    <Columns>
+                                        <asp:BoundField DataField="COD_BARRA" HeaderText="Cod_barra"></asp:BoundField>
+                                        <asp:BoundField DataField="NOME" HeaderText="Produto" />
+                                        <asp:BoundField DataField="DESCRICAO" HeaderText="Descrição" />
+                                        <asp:BoundField DataField="QTD_ESTOQUE" HeaderText="Qtd_estoque" />
+                                        <asp:BoundField DataField="VALOR" HeaderText="Valor" />
+                                        <asp:CommandField HeaderText="selecionar" ShowSelectButton="True" />
+                                    </Columns>
+                                    <FooterStyle BackColor="#CCCCCC" />
+                                    <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                    <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                    <SortedAscendingHeaderStyle BackColor="#808080" />
+                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                                </asp:GridView>
 
 
 

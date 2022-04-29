@@ -24,7 +24,7 @@ img {
 }
 
 #lblMsg {
-    margin-left: 50px;
+    position:fixed;
     font-family: Verdana;
     font-size: 12px;
     color: red;
