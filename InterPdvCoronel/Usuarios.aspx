@@ -70,17 +70,18 @@
                                     <div class="col-12 col-md-2 divUsuario">
                                         <label id="lblNivel">Nivel:</label>
                                         <asp:DropDownList ID="drpNivel" runat="server" CssClass="campos">
-                                            <asp:ListItem Value="1" Selected="True"></asp:ListItem>
+                                            <asp:ListItem Value="1"></asp:ListItem>
                                             <asp:ListItem Value="2"></asp:ListItem>
                                         </asp:DropDownList>
+                                        
                                     </div>
-                                    <div class="col-12 col-md-3 divUsuario">
+                                   <div class="col-12 col-md-2 divUsuario status">
                                         <label id="status">Status:</label>
                                         <asp:DropDownList ID="drpStatus" runat="server" CssClass="campos">
                                             <asp:ListItem Value="A"></asp:ListItem>
                                             <asp:ListItem Value="I"></asp:ListItem>
                                         </asp:DropDownList>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
@@ -88,15 +89,15 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnNovo" CssClass="btnCadastro" runat="server"
                                             Text="Novo" OnClick="btnNovo_Click" />
                                     </div>
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnSalvar" CssClass="btnCadastro" runat="server" 
                                             Text="Salvar" OnClick="btnSalvar_Click" />
                                     </div>
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnExcluir" CssClass="btnCadastro" runat="server"
                                             Text="Excluir" OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir este usuário?')"/>
                                     </div>
@@ -106,7 +107,6 @@
                                     <asp:GridView ID="gridUsuario" runat="server" AutoGenerateColumns="False" CellPadding="5" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" ForeColor="Black" GridLines="Vertical" >
                                            <AlternatingRowStyle BackColor="#CCCCCC" />
                                            <Columns>
-                                               <asp:BoundField HeaderText="Código" DataField="CODIGO" />
                                                <asp:BoundField HeaderText="Nome" DataField="NOME"/>
                                                <asp:BoundField HeaderText="Sobrenome" DataField="SOBRENOME" />
                                                <asp:CommandField AccessibleHeaderText="Selecionar" SelectText="selecionar" ShowSelectButton="True" HeaderText="Selecionar" />

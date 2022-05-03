@@ -11,9 +11,16 @@ namespace InterPdvCoronel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
-            //Response.Redirect("Default.aspx");
-            atualizarGrid();
+           
+            if (!IsPostBack)
+            {
+               /*if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
+                 {
+                     Response.Redirect("Default.aspx");
+                 }*/
+                atualizarGrid();
+            }
+           
         }
 
         private void atualizarGrid()
@@ -143,7 +150,7 @@ namespace InterPdvCoronel
 
                     );
 
-                CODIGO.Text = p.CODIGO.ToString();
+                
                 COD_BARRA.Text = p.COD_BARRA;
                 NOME.Text = p.NOME;
                 DESCRICAO.Text = p.DESCRICAO;

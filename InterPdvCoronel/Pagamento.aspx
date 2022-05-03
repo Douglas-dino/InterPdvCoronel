@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="bootstrap-5.1.3-dist/css/bootstrap-grid.min.css" rel="stylesheet" />
-    <link href="estilos/estilo.css" rel="stylesheet" />
+    <link href="estilos/estilo_pagamento.css" rel="stylesheet" />
     <title>Pagamento</title>
 </head>
 <body>

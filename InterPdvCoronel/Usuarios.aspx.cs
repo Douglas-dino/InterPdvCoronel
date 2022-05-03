@@ -11,9 +11,15 @@ namespace InterPdvCoronel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
-               // Response.Redirect("Default.aspx");
+            if (!IsPostBack)
+            {
+               /*if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
+                 {
+                     Response.Redirect("Default.aspx");
+                 }*/
                 atualizarGrid();
+            }
+                
         }
 
         private void atualizarGrid()
@@ -21,7 +27,7 @@ namespace InterPdvCoronel
             using(coronelEntities conexao = new coronelEntities())
             {
                 //Lista os registros do banco de dados
-                var lista = conexao.USUARIO.ToList();
+                var lista = conexao.USUARIO.OrderBy(linha => linha.NOME).ToList();
                 gridUsuario.DataSource = lista;
                 gridUsuario.DataBind();
                     
@@ -53,12 +59,14 @@ namespace InterPdvCoronel
         {
             using(coronelEntities conexao = new coronelEntities())
             {
-                if(txtNome.Text.Equals("") || txtSobrenome.Text.Equals("") || txtCpf.Text.Equals("") ||
-                    txtLogin.Text.Equals("") || txtSenhaCad.Text.Equals(""))
-                {
-                    lblMsg.Text = "Preencha o formulário";
-                }
-                else
+                USUARIO user = // verifica se há cpf ou login já cadastrado
+                conexao.USUARIO.FirstOrDefault(
+                    linha => linha.LOGIN.Equals(txtLogin.Text) ||
+                             linha.CPF.Equals(txtCpf.Text)
+                    );
+
+                if (!txtNome.Text.Equals("") || !txtSobrenome.Text.Equals("") || !txtCpf.Text.Equals("") ||
+                    !txtLogin.Text.Equals("") || !txtSenhaCad.Text.Equals(""))
                 {
                     lblMsg.Text = string.Empty;
                     //Verifica se esstá inserindo ou atualizando
@@ -81,23 +89,37 @@ namespace InterPdvCoronel
                         gridUsuario.SelectedIndex = -1;
                     }
                     else
-                    {// adcionando
+                    {
+                        if (user != null)
+                        {
+                            // cpf ou login já cadastrado
+                            lblMsg.Text = " Usuário ou login já cadastrado!";
+                            return;
+                        }
+                        else
+                        {
+                            // adcionando
 
-                        USUARIO u = new USUARIO();
-                        u.NOME = txtNome.Text;
-                        u.SOBRENOME = txtSobrenome.Text;
-                        u.CPF = txtCpf.Text;
-                        u.LOGIN = txtLogin.Text;
-                        u.SENHA = txtSenhaCad.Text;
-                        u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
-                        u.STATUS = drpStatus.SelectedValue;
-                        conexao.USUARIO.Add(u);
-                        gridUsuario.SelectedIndex = -1;
+                            USUARIO u = new USUARIO();
+                            u.NOME = txtNome.Text;
+                            u.SOBRENOME = txtSobrenome.Text;
+                            u.CPF = txtCpf.Text;
+                            u.LOGIN = txtLogin.Text;
+                            u.SENHA = txtSenhaCad.Text;
+                            u.NIVEL = Convert.ToInt32(drpNivel.SelectedValue);
+                            u.STATUS = drpStatus.SelectedValue;
+                            conexao.USUARIO.Add(u);
+                            gridUsuario.SelectedIndex = -1;
+                        }
 
                     }
                     conexao.SaveChanges();
                     atualizarGrid();
                     LimparControles(this.Page.Form.Controls);
+                }
+                else
+                {
+                    lblMsg.Text = "Preencha o formulário";
                 }
                 
             }
@@ -129,6 +151,7 @@ namespace InterPdvCoronel
         protected void btnNovo_Click(object sender, EventArgs e)
         {
             lblMsg.Text = string.Empty;
+            gridUsuario.SelectedIndex = -1;
             LimparControles(this.Page.Form.Controls);
 
         }

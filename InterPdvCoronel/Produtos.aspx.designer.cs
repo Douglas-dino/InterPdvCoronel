@@ -51,24 +51,6 @@ namespace InterPdvCoronel
         protected global::System.Web.UI.WebControls.LinkButton lbkUsuario;
 
         /// <summary>
-        /// Controle Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Controle CODIGO.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CODIGO;
-
-        /// <summary>
         /// Controle lblBarra.
         /// </summary>
         /// <remarks>

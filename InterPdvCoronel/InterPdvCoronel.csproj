@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="estilos\estilo_login.css" />
+    <Content Include="estilos\estilo_pagamento.css" />
     <Content Include="estilos\estilo_produto.css" />
     <Content Include="estilos\estilo_usuario.css" />
     <Content Include="estilos\estilo_venda.css" />

@@ -15,7 +15,12 @@
         <img src="imagens/logo2.png" />
     </header>
     <form id="form1" runat="server">
-        <div class="">
+        <div class=" container">
+            <div class="row">
+                <div class="col-12">
+                    <asp:ValidationSummary ID="vsInserir" runat="server" ShowMessageBox="true" ValidationGroup="teste"/>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12 col-md-2" ><!-- menu -->
                        
@@ -25,43 +30,46 @@
                                <li><asp:LinkButton ID="lkbProduto"  runat="server" OnClick="lkbProduto_Click">Produtos</asp:LinkButton></li>
                                <li><asp:LinkButton ID="lbkUsuario"  runat="server" OnClick="lbkUsuario_Click">Gestão de Usuário</asp:LinkButton></li>
                            </ul>
-                        
+                            
                  </div><!-- menu -->
+                 
                  <div class="formulario container-fluid col-12 col-md-8">
                      <div class ="row">
                            <div class="container col-12 col-md-4">
                                <div class="row">
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="lblCodigo" runat="server" Text="Código:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtCodigo" runat="server" CssClass="camposVenda"></asp:TextBox>
+                                       <asp:TextBox ID="txtCodigo" runat="server" CssClass="camposVenda" ValidationGroup="teste"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo só aceita numeros" ControlToValidate="txtCodigo" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="teste"  SetFocusOnError="True">*</asp:RegularExpressionValidator>
+                                       <asp:RequiredFieldValidator ID="rfInserir1" runat="server" ValidationGroup="teste" Text="*" ControlToValidate="txtCodigo" ErrorMessage="O campo codigo é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                    </div>
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="qtd" runat="server" Text="Quantidade:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtQtd" runat="server" CssClass="camposVenda"></asp:TextBox>
+                                       <asp:TextBox ID="txtQtd" runat="server" CssClass="camposVenda" ValidationGroup="teste" ForeColor="Black"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo só aceita numeros" ControlToValidate="txtQtd" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="teste">*</asp:RegularExpressionValidator>
+                                       <asp:RequiredFieldValidator ID="rfInserir2" runat="server" ValidationGroup="teste" Text="*" ControlToValidate="txtQtd" ErrorMessage="O campo quantidade é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                    </div>
 
                                </div>
                                <div class="row">
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="lblVal" runat="server" Text="Val_Unitário" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtVal_Unit" runat="server" CssClass="camposVenda"></asp:TextBox>
+                                       <asp:TextBox ID="txtVal_Unit" runat="server" CssClass="camposVenda" EnableViewState="False" ReadOnly="True" Enabled="False"></asp:TextBox>
                                    </div>
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="sub" runat="server" Text="Subtotal:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtSubtotal" runat="server" CssClass="camposVenda"></asp:TextBox>
+                                       <asp:TextBox ID="txtSubtotal" runat="server" CssClass="camposVenda" Enabled="False"></asp:TextBox>
                                    </div>
 
                                </div>
                                <div class="row">
                                    <div class="col-12 col-md-5 divUsuario"> 
                                        <asp:Label ID="lblTotal" runat="server" Text="Total:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtTotal" runat="server" CssClass="camposVenda" ViewStateMode="Enabled"></asp:TextBox>
+                                       <asp:TextBox ID="txtTotal" runat="server" CssClass="camposVenda" ViewStateMode="Enabled" Enabled="False" ReadOnly="True"></asp:TextBox>
                                    </div>
                                </div>
                                 <div class="row">
                                     <div class="col-12 col-md-3 divUsuario">
                                         <asp:Button ID="btnInserir" CssClass="btnCadastro" runat="server"
-                                            Text="Inserir" OnClick="btnInserir_Click" />
+                                            Text="Inserir" OnClick="btnInserir_Click" ValidationGroup="teste" />
                                     </div>
                                     <div class="col-12 col-md-3 divUsuario botoes">
                                         
@@ -76,6 +84,9 @@
                                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
                                    </div>
                                </div>
+                                <div class="row ">
+                                   
+                                </div>  
                                 
                            </div>
                            <div class="container col-12 col-md-6">
@@ -84,7 +95,7 @@
                                    <div class="col-12 divUsuario">
                                        
                                       <asp:Label ID="lblProduto" runat="server" Text="Produto:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtProduto" runat="server" CssClass="campos"></asp:TextBox>
+                                       <asp:TextBox ID="txtProduto" runat="server" CssClass="campos" Enabled="False" ReadOnly="True"></asp:TextBox>
                                    </div>
                                  </div>
                               
@@ -126,8 +137,9 @@
                  </div>
 
             </div>
+           
          </div> <!-- -->
-                            
+                          
             <footer class="rodPosicao">
                 <div class="container">
                     <div class="row">

@@ -17,10 +17,20 @@ namespace InterPdvCoronel
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
-            //Response.Redirect("Default.aspx");
-            //lblUsuario.Text =  Session["LOGIN"].ToString();
-             GerarCodVenda();
+            if (!IsPostBack)
+            {
+                if (Session["LOGIN"] != null) //Verifica se há acesso de usuário
+                {
+                    lblUsuario.Text = "Operador: " + Session["LOGIN"].ToString();
+                }
+                else
+                {
+                   // Response.Redirect("Default.aspx");
+                }
+
+                GerarCodVenda();
+            }
+            
         }
 
         private void GerarCodVenda()
@@ -73,52 +83,15 @@ namespace InterPdvCoronel
 
         protected void buscarProduto()
         {
+           
 
-            int codigo = Convert.ToInt32(txtCodigo.Text);
-            using (coronelEntities conexao = new coronelEntities())
-            {
-                // busca os produtos na tabela produto
-                PRODUTO p =
-                    conexao.PRODUTO.FirstOrDefault(
-                        linha => linha.CODIGO.Equals(codigo)
-                        );
-
-                if (p != null)
-                {
-
-                    // insere os dados nos controles
-                    txtProduto.Text = p.NOME;
-                    txtVal_Unit.Text = p.VALOR.ToString();
-                    qtd_unit = p.QTD_ESTOQUE;
-                    // calculo quantidade x  valor unitário
-                    txtSubtotal.Text = (Convert.ToDecimal(txtVal_Unit.Text) * Convert.ToInt32(txtQtd.Text)).ToString();
-                    // insere no controle o calculo
-                    txtTotal.Text = (totalVenda += Convert.ToDecimal(txtSubtotal.Text)).ToString();
-
-                }
-                else
-                {
-                    lblMsg.Text = "Produto não encontrado";
-
-                }
-
-            }
         }
 
         private void gruardaItemVenda()
         {
             using (coronelEntities conexao = new coronelEntities())
             {
-                if (qtd_unit < Convert.ToUInt32(txtQtd.Text))
-                {
-                    // verifica se há quntidade suficiente no estoque
-                    lblMsg.Text = "Este produto possui " + qtd_unit + " unidades no estoque";
-                    //LimparControles(this.Page.Form.Controls);
-                    totalVenda = 0;
-                    return;
-                }
-                else
-                {
+                                
                     lblMsg.Text = string.Empty;
                     // grava os itens da venda na tabela item_venda
                     ITEM_VENDA i = new ITEM_VENDA();
@@ -128,7 +101,7 @@ namespace InterPdvCoronel
                     i.VAL_UNITARIO = Convert.ToDecimal(txtSubtotal.Text);
                     conexao.ITEM_VENDA.Add(i);
                     conexao.SaveChanges();
-                }
+                
                 
             }
         }
@@ -199,20 +172,59 @@ namespace InterPdvCoronel
         protected void btnInserir_Click(object sender, EventArgs e)
         {
 
-            if (txtCodigo.Text.Equals(string.Empty) || txtQtd.Text.Equals(string.Empty))
+            if (txtCodigo.Text != null || txtQtd.Text != null)
             {
-                lblMsg.Text = "Os campos código e quantidade são obrigatórios ";
-                return;
+                int codigo = Convert.ToInt32(txtCodigo.Text);
+                using (coronelEntities conexao = new coronelEntities())
+                {
+                    // busca os produtos na tabela produto
+                    PRODUTO p =
+                        conexao.PRODUTO.FirstOrDefault(
+                            linha => linha.CODIGO.Equals(codigo)
+                            );
+
+                    if (p != null)
+                    {
+                        if (p.QTD_ESTOQUE < Convert.ToInt32(txtQtd.Text))
+                        {
+                            // verifica se há quntidade suficiente no estoque
+                            txtProduto.Text = p.NOME;
+                            txtVal_Unit.Text = p.VALOR.ToString();
+                            lblMsg.Text = "Este produto possui " + p.QTD_ESTOQUE + " unidades no estoque.";
+                            //LimparControles(this.Page.Form.Controls);
+                            return;
+
+                        }
+
+                        else
+                        {
+                            // insere os dados nos controles
+                            txtProduto.Text = p.NOME;
+                            txtVal_Unit.Text = p.VALOR.ToString();
+                            qtd_unit = p.QTD_ESTOQUE;
+                            // calculo quantidade x  valor unitário
+                            txtSubtotal.Text = (Convert.ToDecimal(txtVal_Unit.Text) * Convert.ToInt32(txtQtd.Text)).ToString();
+                            // insere no controle o calculo
+                            txtTotal.Text = (totalVenda += Convert.ToDecimal(txtSubtotal.Text)).ToString();
+                            gruardaItemVenda();
+                            atualizarGrid();
+                            //Limpar();
+                        }
+
+
+                    }
+                    else
+                    {
+                        lblMsg.Text = "Produto não encontrado";
+                        return;
+                    }
+
+                }
+
             }
-            else
-            {
-                buscarProduto();
-                gruardaItemVenda();
-                atualizarGrid();
-                //Limpar();
-            }
-            
-         
+           
+
+
         }
 
         protected void gridVenda_SelectedIndexChanged(object sender, EventArgs e)
@@ -282,5 +294,7 @@ namespace InterPdvCoronel
             }
 
         }
+
+        
     }
 }

@@ -1,4 +1,8 @@
-﻿header {
+﻿
+body {
+    background-color: #373b44;
+}
+header {
     border-style: solid;
     border-color: #A4C639;
     background-color: #2e2e2e;
@@ -32,7 +36,7 @@ input {
 #lblMsg {
    
     font-family: Verdana;
-    font-size: 12px;
+    font-size: 16px;
     color: red;
 }
 
@@ -51,9 +55,6 @@ input {
     height: 30px;
 }
 
-.divExcluir {
-    
-}
 
 .btnExcluir {
     margin-left: 400px;
@@ -69,7 +70,7 @@ input {
     border-style: none;
     background-color: #A4C639;
     border-radius: 3px;
-    color: white;
+    color: #2e2e2e;
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
@@ -93,6 +94,7 @@ input {
 
 #lblCodVenda, #lblUsuario {
     color: #A4C639;
+    font-size: 20px;
 }
 
 
@@ -119,12 +121,13 @@ footer {
     height: 500px;
     width: 1000px;
     border-style: solid;
+    background-color: rgba(233, 233, 233);
     border-color: #A4C639;
     padding-bottom: 5px;
     left: 300px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
-    margin-top:60px;
-    position:fixed;
+    margin-top: 60px;
+    position: fixed;
 }
 
 ul {
@@ -156,8 +159,8 @@ li a {
     text-decoration: none;
     text-align: center;
     border: 1px solid #555;
-    box-shadow: 1px 1px rgba(10, 10, 10, 0.616);
-    background-color: rgba(233, 233, 233, 0.527);
+    box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
+    background-color: rgba(233, 233, 233);
     margin-left: 1px;
     border-style: solid;
     border-color: #A4C639;
@@ -167,6 +170,7 @@ li a:hover {
     background-color: #2e2e2e;
     color: #A4C639;
 }
+
 
 #gridVenda{
     width: 485px;

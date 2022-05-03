@@ -39,10 +39,7 @@
 
                                 <!-- componentes do formulario -->
                                 <div class="row">
-                                    <div class="col-12 col-md-5 divUsuario">
-                                         <asp:Label ID="Label1" runat="server" Text="Código:"></asp:Label>
-                                         <asp:TextBox ID="CODIGO" runat="server" CssClass="campos" Enabled="False" ReadOnly="True"></asp:TextBox>
-                                    </div>
+                                   
                                     <div class="col-12 col-md-5 divUsuario">
                                          <asp:Label ID="lblBarra" runat="server" Text="Cod_Barras:"></asp:Label>
                                          <asp:TextBox ID="COD_BARRA" runat="server" CssClass="campos"></asp:TextBox>
@@ -87,15 +84,15 @@
                                     </div>
                                 </div>
                                  <div class="row">
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnNovo" CssClass="btnCadastro" runat="server"
                                             Text="Novo" OnClick="btnNovo_Click" />
                                     </div>
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnSalvar" CssClass="btnCadastro" runat="server" 
                                             Text="Salvar" OnClick="btnSalvar_Click" />
                                     </div>
-                                    <div class="col-12 col-md-3 botoes">
+                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnExcluir" CssClass="btnCadastro" runat="server"
                                             Text="Excluir" OnClick="btnExcluir_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir este produto?')"/>
                                     </div>

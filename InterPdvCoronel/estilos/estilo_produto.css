@@ -1,4 +1,8 @@
-﻿header {
+﻿body {
+    background-color: #373b44;
+}
+
+header {
     border-style: solid;
     border-color: #A4C639;
     background-color: #2e2e2e;
@@ -35,8 +39,12 @@ input {
     border-radius: 2px;
 }
 
-#COD_BARRA, #VALOR, #lblValor, #lblBarra{
+ #VALOR, #lblValor{
     margin-left:50px;
+}
+
+#COD_BARRA {
+    width: 375px;
 }
 
 #NOME, #DESCRICAO {
@@ -45,9 +53,9 @@ input {
 
 .pformulario {
     margin-top: 30px;
-    font-size: x-large;
+    font-size: 40px;
     color: #A4C639;
-    margin-left: 400px;
+    margin-left: 350px;
 }
 
 .btnCadastro {
@@ -56,10 +64,12 @@ input {
     border-style: none;
     background-color: #A4C639;
     border-radius: 3px;
-    color: white;
+    color: #2e2e2e;
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
+    margin-top: 55px;
+    position: fixed;
 }
 
 #btnSalvar {
@@ -76,10 +86,6 @@ input {
     border-style: solid;
     border-color: #A4C639;
     border-width: 2px;
-}
-
-.botoes {
-    margin-top: 90px;
 }
 
 
@@ -105,6 +111,7 @@ footer {
     width: 1050px;
     border-style: solid;
     border-color: #A4C639;
+    background-color: rgba(233, 233, 233);
     padding-bottom: 5px;
     left: 300px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
@@ -141,8 +148,8 @@ li a {
     text-decoration: none;
     text-align: center;
     border: 1px solid #555;
-    box-shadow: 1px 1px rgba(10, 10, 10, 0.616);
-    background-color: rgba(233, 233, 233, 0.527);
+    box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
+    background-color: rgba(233, 233, 233);
     margin-left: 1px;
     border-style: solid;
     border-color: #A4C639;
