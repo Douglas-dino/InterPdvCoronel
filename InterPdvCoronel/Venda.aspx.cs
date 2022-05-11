@@ -35,17 +35,20 @@ namespace InterPdvCoronel
 
         private void GerarCodVenda()
         {
-            coronelEntities conexao = new coronelEntities();
-            //Busca o ultimo código de venda
-            VENDA venda = 
-                conexao.VENDA.OrderBy(
-                    /* Duvida sobre esse código, ele não retorna resultados vazios
-                       O lastorDefault não funcionou   */
-                    linha => linha.CODIGO).OrderByDescending(n => n.CODIGO).Take(1).Single();
-                
+            using (coronelEntities conexao = new coronelEntities()) 
+            {
+                //Busca o ultimo código de venda
+                VENDA venda =
+                    conexao.VENDA.OrderBy(
+                        /* Duvida sobre esse código, ele não retorna resultados vazios
+                           O lastorDefault não funcionou   */
+                        linha => linha.CODIGO).OrderByDescending(n => n.CODIGO).Take(1).Single();
+
                 cod = (venda.CODIGO) + 1; //Adiciona + 1 ao código de venda
-            
+
                 lblCodVenda.Text = "Codigo Venda:" + cod.ToString(); //Novo código de venda
+            }
+            
             
         }
 
@@ -81,26 +84,20 @@ namespace InterPdvCoronel
             }
         }
 
-        protected void buscarProduto()
-        {
-           
-
-        }
-
         private void gruardaItemVenda()
         {
             using (coronelEntities conexao = new coronelEntities())
             {
                                 
-                    lblMsg.Text = string.Empty;
-                    // grava os itens da venda na tabela item_venda
-                    ITEM_VENDA i = new ITEM_VENDA();
-                    i.COD_PRODUTO = Convert.ToInt32(txtCodigo.Text);
-                    i.COD_VENDA = cod;
-                    i.QUANTIDADE = Convert.ToInt32(txtQtd.Text);
-                    i.VAL_UNITARIO = Convert.ToDecimal(txtSubtotal.Text);
-                    conexao.ITEM_VENDA.Add(i);
-                    conexao.SaveChanges();
+                lblMsg.Text = string.Empty;
+                // grava os itens da venda na tabela item_venda
+                ITEM_VENDA i = new ITEM_VENDA();
+                i.COD_PRODUTO = Convert.ToInt32(txtCodigo.Text);
+                i.COD_VENDA = cod;
+                i.QUANTIDADE = Convert.ToInt32(txtQtd.Text);
+                i.VAL_UNITARIO = Convert.ToDecimal(txtSubtotal.Text);
+                conexao.ITEM_VENDA.Add(i);
+                conexao.SaveChanges();
                 
                 
             }
@@ -182,7 +179,7 @@ namespace InterPdvCoronel
                         conexao.PRODUTO.FirstOrDefault(
                             linha => linha.CODIGO.Equals(codigo)
                             );
-
+                    
                     if (p != null)
                     {
                         if (p.QTD_ESTOQUE < Convert.ToInt32(txtQtd.Text))
@@ -222,6 +219,10 @@ namespace InterPdvCoronel
                 }
 
             }
+            else
+            {
+                lblMsg.Text = "Preencha os campos.";
+            }
            
 
 
@@ -249,49 +250,80 @@ namespace InterPdvCoronel
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
-        { // grava a venda no banco
-            gravarVenda();
-            totalVenda = 0;
-            cod = 0;
-            GerarCodVenda();
-            LimparControles(this.Page.Form.Controls);
-            Response.Redirect("Pagamento.aspx");
+        {
+            using (coronelEntities conexao = new coronelEntities())
+            {
+                //Lista os registros do banco de dados
+                ITEM_VENDA i =
+                 conexao.ITEM_VENDA.FirstOrDefault(
+                    linha => linha.COD_VENDA.Equals(cod)
+                    );
+
+                if (i != null)
+                {
+                    
+                    // grava a venda no banco
+                    gravarVenda();
+                    Session["valor"] = totalVenda;
+                    totalVenda = 0;
+                    cod = 0;
+                    GerarCodVenda();
+                    LimparControles(this.Page.Form.Controls);
+                    Response.Redirect("Pagamento.aspx");
+                }
+                else
+                {
+                    lblMsg.Text = "Registre um item na venda.";
+
+                }
+
+            }
+
             
         }
 
         protected void btnExcluirVen_Click(object sender, EventArgs e)
         {
-            using (coronelEntities conexao = new coronelEntities())
+            // exclusão de item
+            if (gridVenda.SelectedIndex.Equals(-1))
             {
-                // exclusão de item
-                int IdSlecionado = Convert.ToInt32(gridVenda.SelectedValue.ToString());
-
-                ITEM_VENDA i =
-                    conexao.ITEM_VENDA.FirstOrDefault(
-                        linha => linha.ID.ToString().Equals(IdSlecionado.ToString())
-                        );
-
-                conexao.ITEM_VENDA.Remove(i);
-                conexao.SaveChanges();
-                
-                if (gridVenda.SelectedValue != null)
-                {
-                    //recalcula o valor da compra apos a exclusão de item
-                    if (Convert.ToDecimal(txtSubtotal.Text) > totalVenda)
-                    {
-                        totalVenda = (Convert.ToDecimal(txtSubtotal.Text) - totalVenda) * -1;
-                        txtTotal.Text = totalVenda.ToString();
-                    }
-                    else
-                    {
-                        totalVenda = (totalVenda - Convert.ToDecimal(txtSubtotal.Text));
-                        txtTotal.Text = totalVenda.ToString();
-                    }
-                    
-                }
-                atualizarGrid();
-                gridVenda.SelectedIndex = -1;
+                lblMsg.Text = "Selecione um item para excluir!";
             }
+            else
+            {
+                using (coronelEntities conexao = new coronelEntities())
+                {
+
+                    int IdSlecionado = Convert.ToInt32(gridVenda.SelectedValue.ToString());
+
+                    ITEM_VENDA i =
+                        conexao.ITEM_VENDA.FirstOrDefault(
+                            linha => linha.ID.ToString().Equals(IdSlecionado.ToString())
+                            );
+
+                    conexao.ITEM_VENDA.Remove(i);
+                    conexao.SaveChanges();
+
+                    if (gridVenda.SelectedValue != null)
+                    {
+                        //recalcula o valor da compra apos a exclusão de item
+                        if (Convert.ToDecimal(txtSubtotal.Text) > totalVenda)
+                        {
+                            totalVenda = (Convert.ToDecimal(txtSubtotal.Text) - totalVenda) * -1;
+                            txtTotal.Text = totalVenda.ToString();
+                        }
+                        else
+                        {
+                            totalVenda = (totalVenda - Convert.ToDecimal(txtSubtotal.Text));
+                            txtTotal.Text = totalVenda.ToString();
+                        }
+
+                    }
+                    atualizarGrid();
+                    gridVenda.SelectedIndex = -1;
+                }
+            }
+            
 
         }
 

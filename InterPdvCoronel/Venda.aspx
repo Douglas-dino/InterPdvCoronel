@@ -18,7 +18,7 @@
         <div class=" container">
             <div class="row">
                 <div class="col-12">
-                    <asp:ValidationSummary ID="vsInserir" runat="server" ShowMessageBox="true" ValidationGroup="teste"/>
+                    <asp:ValidationSummary ID="vsInserir" runat="server" ShowMessageBox="true" ValidationGroup="inserir"/>
                 </div>
             </div>
             <div class="row">
@@ -39,13 +39,13 @@
                                <div class="row">
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="lblCodigo" runat="server" Text="Código:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtCodigo" runat="server" CssClass="camposVenda" ValidationGroup="teste"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo só aceita numeros" ControlToValidate="txtCodigo" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="teste"  SetFocusOnError="True">*</asp:RegularExpressionValidator>
-                                       <asp:RequiredFieldValidator ID="rfInserir1" runat="server" ValidationGroup="teste" Text="*" ControlToValidate="txtCodigo" ErrorMessage="O campo codigo é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                       <asp:TextBox ID="txtCodigo" runat="server" CssClass="camposVenda" ValidationGroup="inserir"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo código só aceita numeros" ControlToValidate="txtCodigo" ForeColor="#D1FEEF" ValidationExpression="\d+" ValidationGroup="inserir"  SetFocusOnError="True">*</asp:RegularExpressionValidator>
+                                       <asp:RequiredFieldValidator ID="rfInserir1" runat="server" ValidationGroup="inserir" Text="*" ControlToValidate="txtCodigo" ErrorMessage="O campo codigo é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                    </div>
                                    <div class="col-12 col-md-5 divUsuario">
                                        <asp:Label ID="qtd" runat="server" Text="Quantidade:" CssClass="rotulosl"></asp:Label>
-                                       <asp:TextBox ID="txtQtd" runat="server" CssClass="camposVenda" ValidationGroup="teste" ForeColor="Black"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo só aceita numeros" ControlToValidate="txtQtd" ForeColor="Red" ValidationExpression="\d+" ValidationGroup="teste">*</asp:RegularExpressionValidator>
-                                       <asp:RequiredFieldValidator ID="rfInserir2" runat="server" ValidationGroup="teste" Text="*" ControlToValidate="txtQtd" ErrorMessage="O campo quantidade é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                       <asp:TextBox ID="txtQtd" runat="server" CssClass="camposVenda" ValidationGroup="inserir" ForeColor="Black"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo quantidade só aceita numeros" ControlToValidate="txtQtd" ForeColor="#D1FEEF" ValidationExpression="\d+" ValidationGroup="inserir">*</asp:RegularExpressionValidator>
+                                       <asp:RequiredFieldValidator ID="rfInserir2" runat="server" ValidationGroup="inserir" Text="*" ControlToValidate="txtQtd" ErrorMessage="O campo quantidade é de prenenchimento obrigatorio!" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                    </div>
 
                                </div>
@@ -69,7 +69,7 @@
                                 <div class="row">
                                     <div class="col-12 col-md-3 divUsuario">
                                         <asp:Button ID="btnInserir" CssClass="btnCadastro" runat="server"
-                                            Text="Inserir" OnClick="btnInserir_Click" ValidationGroup="teste" />
+                                            Text="Inserir" OnClick="btnInserir_Click" ValidationGroup="inserir" />
                                     </div>
                                     <div class="col-12 col-md-3 divUsuario botoes">
                                         
@@ -127,7 +127,7 @@
                                <div class="row">
                                    <div class="col-12 divUsuario">
                                         <asp:Button ID="btnExcluirVen" CssClass="btnCadastro btnExcluir" runat="server"
-                                            Text="Excluir" OnClick="btnExcluirVen_Click"/>
+                                            Text="Excluir" OnClick="btnExcluirVen_Click" OnClientClick="javascript:return confirm('Deseja realmente excluir este item da venda?')"/>
                                    </div>
                                </div>
 

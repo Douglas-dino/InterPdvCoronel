@@ -24,11 +24,11 @@ img {
     font-family: Verdana;
     border-style: solid;
     border-color: #A4C639;
-    border-width:2px;
+    border-width: 2px;
 }
 
 #lblMsg {
-    position:fixed;
+    position: fixed;
     font-family: Verdana;
     font-size: 16px;
     color: red;
@@ -39,29 +39,11 @@ input {
     border-radius: 2px;
 }
 
-
-#txtNome, #txtSobrenome {
-    width: 370px;
-}
-
-#txtLogin, #drpNivel {
-    margin-left: 52px;
-}
-
-#txtLogin {
-    width: 175px;
-}
-
-#lblNivel, #lblLogin {
-    margin-left: 52px;
-}
-
 .pformulario {
-    margin-top: 10px;
+    margin-top: 30px;
     font-size: 40px;
     color: #A4C639;
     margin-left: 400px;
-   
 }
 
 .btnCadastro {
@@ -78,13 +60,6 @@ input {
     position: fixed;
 }
 
-#btnSalvar{
-    margin-left: 30px;
-}
-#btnExcluir {
-    margin-left: 60px;
-}
-
 .btnCadastro:hover {
     background-color: #2e2e2e;
     color: #A4C639;
@@ -93,23 +68,10 @@ input {
     border-width: 2px;
 }
 
-
-
-.status{
-    margin-left:40px;
-}
-
-
-
 .divUsuario {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 0px;
 }
-
-#status{
-    margin-left:40px;
-}
-
 footer {
     border-style: solid;
     border-color: #A4C639;
@@ -124,7 +86,7 @@ footer {
 
 
 .formulario {
-    height: 520px;
+    height: 500px;
     width: 1050px;
     border-style: solid;
     border-color: #A4C639;
@@ -170,7 +132,7 @@ li a {
     margin-left: 1px;
     border-style: solid;
     border-color: #A4C639;
-    border-width:1px;
+    border-width: 1px;
 }
 
 li a:hover {
@@ -178,9 +140,9 @@ li a:hover {
     color: #A4C639;
 }
 
-#gridUsuario{
+#gridUsuario {
     margin-top: 20px;
-    margin-left:50px;
-    width:620px;
-    position:fixed;
+    margin-left: 50px;
+    width: 620px;
+    position: fixed;
 }

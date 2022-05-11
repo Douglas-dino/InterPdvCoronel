@@ -2,6 +2,11 @@
     background-color: #373b44;
 }
 
+.divUsuario {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
 header {
     border-style: solid;
     border-color: #A4C639;
@@ -21,10 +26,16 @@ img {
 
 .campos {
     height: 30px;
+    width:350px;
     font-family: Verdana;
     border-style: solid;
     border-color: #A4C639;
     border-width: 2px;
+}
+
+#drpTipoPg{
+    font-size:18px;
+
 }
 
 #lblMsg {
@@ -32,6 +43,7 @@ img {
     font-family: Verdana;
     font-size: 14px;
     color: red;
+    margin-left:260px;
 }
 
 input {
@@ -43,19 +55,33 @@ input {
     margin-top: 30px;
     font-size: 40px;
     color: #A4C639;
-    margin-left: 400px;
+    margin-left: 340px;
+}
+.pcampos{
+    margin-left:60px;
 }
 
+#Label1, #Label2, #Label3, #Label4{
+    font: bold;
+    font-size: 20px;
+}
+#txtValor, #drpTipoPg {
+    margin-bottom: 20px;
+}
 .btnCadastro {
-    height: 28px;
-    width: 100px;
+    height: 45px;
+    width: 350px;
     border-style: none;
     background-color: #A4C639;
     border-radius: 3px;
+    margin-left: 65px;
+    margin-top: 30px;
     color: #2e2e2e;
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
+    font:bold;
+    font-size:18px;
 }
 
 .btnCadastro:hover {
@@ -78,10 +104,10 @@ input {
     border-width: 2px;
 }
 
-.botoes {
-    margin-top: 80px;
+#lblCodVenda {
+    color: #A4C639;
+    font-size: 20px;
 }
-
 footer {
     border-style: solid;
     border-color: #A4C639;
@@ -94,15 +120,14 @@ footer {
 }
 
 
-
 .formulario {
     height: 500px;
-    width: 1050px;
+    width: 900px;
     border-style: solid;
     border-color: #A4C639;
     background-color: rgba(233, 233, 233);
     padding-bottom: 5px;
-    left: 200px;
+    left: 230px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
     margin-top: 60px;
     position: fixed;

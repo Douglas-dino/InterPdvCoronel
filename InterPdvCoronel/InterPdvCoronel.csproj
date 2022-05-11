@@ -79,6 +79,7 @@
     <Content Include="estilos\estilo_login.css" />
     <Content Include="estilos\estilo_pagamento.css" />
     <Content Include="estilos\estilo_produto.css" />
+    <Content Include="estilos\estilo_relatorio.css" />
     <Content Include="estilos\estilo_usuario.css" />
     <Content Include="estilos\estilo_venda.css" />
     <Content Include="javascript\mensagens.js" />

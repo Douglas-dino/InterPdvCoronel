@@ -65,8 +65,8 @@ namespace InterPdvCoronel
                              linha.CPF.Equals(txtCpf.Text)
                     );
 
-                if (!txtNome.Text.Equals("") || !txtSobrenome.Text.Equals("") || !txtCpf.Text.Equals("") ||
-                    !txtLogin.Text.Equals("") || !txtSenhaCad.Text.Equals(""))
+                if (txtNome.Text != null || txtSobrenome.Text != null || txtCpf.Text != null ||
+                    txtLogin.Text != null || txtSenhaCad.Text != null)
                 {
                     lblMsg.Text = string.Empty;
                     //Verifica se esstá inserindo ou atualizando

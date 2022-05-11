@@ -20,6 +20,7 @@
             <div class="row"> <!--dentro desta tag está o menu e o formulario -->
                    <div class="col-12 col-md-2 container"><!-- menu -->
                        <div class ="divMenu">
+                           <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="inserir" ShowMessageBox="True" ForeColor="#373B44" />
                            <ul>
                                <li><a class="ativo" href="Venda.aspx">Voltar</a></li>
                                <li><a href="Relatorio.aspx">Relatório</a></li>
@@ -44,28 +45,39 @@
                                     <div class ="col-12 divUsuario">
                                         
                                         <asp:TextBox ID ="txtNome" runat="server" CssClass="campos"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="O campo Nome é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtNome" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo Nome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtNome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{3,50}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 divUsuario">
                                         <label>Sobrenome:</label>
                                         <asp:TextBox ID="txtSobrenome" runat="server" CssClass="campos"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="O campo Sobrenome é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtSobrenome" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo Sobrenome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtSobrenome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{3,50}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-5 divUsuario">
                                         <label>Cpf:</label>
                                         <asp:TextBox ID="txtCpf" runat="server" CssClass="campos"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="O campo cpf é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtCpf" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="O campo Cpf só aceita numero" ValidationGroup="inserir" Text="*" ControlToValidate="txtCpf" ForeColor="#CCFFCC" ValidationExpression="[0-9]{11,11}"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-12 col-md-5 divUsuario">
                                         <label id="lblLogin">Login:</label>
                                         <asp:TextBox ID="txtLogin" runat="server" CssClass="campos"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="O campo Login é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtLogin" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="O campo Login  aceita texto numero e caracteres" ValidationGroup="inserir" Text="*" ControlToValidate="txtLogin" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõç@_*&amp;#!?.]{5,10}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-5 divUsuario">
                                         <label>Senha:</label>
                                         <asp:TextBox ID="txtSenhaCad" runat="server" CssClass="campos" TextMode ="Password"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="O campo Senha é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtSenhaCad" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="O campo Senha  aceita texto numeros e  caracteres" ValidationGroup="inserir" Text="*" ControlToValidate="txtSenhaCad" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõç@_*&;#!?.]{5,10}"></asp:RegularExpressionValidator>
+
                                     </div>
                                     <div class="col-12 col-md-2 divUsuario">
                                         <label id="lblNivel">Nivel:</label>
@@ -95,7 +107,7 @@
                                     </div>
                                     <div class="col-12 col-md-3">
                                         <asp:Button ID="btnSalvar" CssClass="btnCadastro" runat="server" 
-                                            Text="Salvar" OnClick="btnSalvar_Click" />
+                                            Text="Salvar" OnClick="btnSalvar_Click" ValidationGroup="inserir" />
                                     </div>
                                     <div class="col-12 col-md-3">
                                         <asp:Button ID="btnExcluir" CssClass="btnCadastro" runat="server"

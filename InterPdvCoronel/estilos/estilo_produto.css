@@ -12,7 +12,9 @@ header {
     left: -6px;
     height: 45px;
 }
-
+.valor {
+    margin-left: 50px;
+}
 img {
     width: 221px;
     height: 67px;
@@ -30,7 +32,7 @@ img {
 #lblMsg {
     position:fixed;
     font-family: Verdana;
-    font-size: 12px;
+    font-size: 16px;
     color: red;
 }
 
@@ -38,9 +40,9 @@ input {
     border: thin solid black;
     border-radius: 2px;
 }
-
- #VALOR, #lblValor{
-    margin-left:50px;
+.mensagem{
+    margin-top:300px;
+    
 }
 
 #COD_BARRA {
@@ -52,7 +54,7 @@ input {
 }
 
 .pformulario {
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 40px;
     color: #A4C639;
     margin-left: 350px;
@@ -68,7 +70,7 @@ input {
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
-    margin-top: 55px;
+    margin-top: 45px;
     position: fixed;
 }
 
@@ -102,12 +104,13 @@ footer {
     position: fixed;
     left: -3px;
     margin-top: 600px;
+    position:fixed;
 }
 
 
 
 .formulario {
-    height: 500px;
+    height: 530px;
     width: 1050px;
     border-style: solid;
     border-color: #A4C639;

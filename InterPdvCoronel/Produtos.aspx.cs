@@ -64,12 +64,13 @@ namespace InterPdvCoronel
         {
             using (coronelEntities conexao = new coronelEntities())
             {
-                if (COD_BARRA.Text.Equals("") || NOME.Text.Equals("") || DESCRICAO.Text.Equals("") || 
-                    QTD_ESTOQUE.Text.Equals("") || VALOR.Text.Equals(""))
-                {
-                    lblMsg.Text = "Preencha o formulário!";
-                }
-                else
+                PRODUTO prod =
+                    conexao.PRODUTO.FirstOrDefault(
+                        linha => linha.COD_BARRA.Equals(COD_BARRA.Text)
+                        );
+
+                if (COD_BARRA.Text != null || NOME.Text != null || DESCRICAO.Text != null || 
+                    QTD_ESTOQUE.Text != null || VALOR.Text != null)
                 {
                     lblMsg.Text = string.Empty;
                     //Verifica se esstá inserindo ou atualizando
@@ -90,24 +91,40 @@ namespace InterPdvCoronel
                         gridProduto.SelectedIndex = -1;
                     }
                     else
-                    {// adcionando
+                    {
+                        if(prod != null)
+                        {
+                            //código de barra já cadastrado
+                            lblMsg.Text = "O código de barras ja está cadastrado.";
+                            return;
+                        }
+                        else
+                        {
+                            // adcionando
 
-                        PRODUTO p = new PRODUTO();
-                        p.COD_BARRA = COD_BARRA.Text;
-                        p.NOME = NOME.Text;
-                        p.DESCRICAO = DESCRICAO.Text;
-                        p.QTD_ESTOQUE = Convert.ToInt32(QTD_ESTOQUE.Text);
-                        p.VALOR = Convert.ToDecimal(VALOR.Text);
-                        conexao.PRODUTO.Add(p);
-                        gridProduto.SelectedIndex = -1;
+                            PRODUTO p = new PRODUTO();
+                            p.COD_BARRA = COD_BARRA.Text;
+                            p.NOME = NOME.Text;
+                            p.DESCRICAO = DESCRICAO.Text;
+                            p.QTD_ESTOQUE = Convert.ToInt32(QTD_ESTOQUE.Text);
+                            p.VALOR = Convert.ToDecimal(VALOR.Text);
+                            conexao.PRODUTO.Add(p);
+                            gridProduto.SelectedIndex = -1;
+                        }
+                        
 
                     }
                     conexao.SaveChanges();
                     atualizarGrid();
                     LimparControles(this.Page.Form.Controls);
                 }
+                else
+                {
+                    lblMsg.Text = "Preencha o formulário!";
+                }
                 
             }
+            
         }
 
         protected void btnExcluir_Click(object sender, EventArgs e)
