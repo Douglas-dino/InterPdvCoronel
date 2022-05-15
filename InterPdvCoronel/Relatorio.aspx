@@ -32,10 +32,11 @@
                         </div>
                      </div>
                      <div class ="row">
-                           <div class="container col-12 col-md-5">
-                               <div class="row">
-                                   <div class="col-12 col-md-3">
-                                       <asp:Calendar ID="cadRelatorio" runat="server" BackColor="White" BorderColor="#A4C639" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="153px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="304px" SelectionMode="None">
+                           <div class="container col-12 col-md-5" style="border:1.5px solid #A4C639;" >
+                               <div class="row">                             
+                                   <div class="col-12 col-md-2">
+                                       <asp:Label ID="lblInicio" runat="server" Text="Inicio: "></asp:Label>
+                                       <asp:Calendar ID="cadRelatorio1" runat="server" BackColor="White" BorderColor="#A4C639" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="53px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px" SelectionMode="DayWeekMonth" FirstDayOfWeek="Sunday" OnSelectionChanged="cadRelatorio1_SelectionChanged1">
                                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
                                            <DayStyle Width="14%" />
                                            <NextPrevStyle Font-Size="8pt" ForeColor="White" />
@@ -46,6 +47,42 @@
                                            <TodayDayStyle BackColor="#CCCC99" />
                                        </asp:Calendar>
                                    </div>
+                                   <div class="col-12 col-md-2 pcampos">
+                                       <asp:Label ID="lblEntrada" runat="server" Text="Entrada: "></asp:Label>
+                                       <asp:TextBox ID="txtEntrada" CssClass="campos" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
+                                       <asp:Label ID="lblSaida" runat="server" CssClass="divUsuario" Text="Saida: "></asp:Label>
+                                       <asp:TextBox ID="txtSaida" CssClass="campos" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
+                                       <asp:Label ID="lblCaixa" runat="server" CssClass="divUsuario" Text="Caixa: "></asp:Label>
+                                       <asp:TextBox ID="txtCaixa" CssClass="campos" runat="server" Enabled="False" ReadOnly="True"></asp:TextBox>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-12">
+                                       <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                                   </div>
+                               </div>
+                               <div class="row divUsuario">
+                                  
+                                    <div class="col-12 col-md-3">
+                                        <asp:Button ID="btnLimpar" CssClass=" btnCadastro" runat="server" Text="Limpar" OnClick="btnLimpar_Click" />
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <asp:Button ID="btnConsultar" CssClass=" btnCadastro" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
+                                      
+                                    </div>
+                                   
+                               </div>
+                               
+                               <div class="row drop" style="border-top:1.5px solid #A4C639;">
+                               
+                                   <div class="col-12 col-md-3" >
+                                       <asp:Label ID="Label1" runat="server" Text="Código: "></asp:Label>
+                                       <asp:DropDownList ID="drpItems" style="OVERFLOW: auto;" CssClass="campos" runat="server"></asp:DropDownList>
+                                   </div>
+                                   <div class="col-12 col-md-3">
+                                        <asp:Button ID="btnProcurar" CssClass=" btnCadastro" runat="server" Text="Consultar Itens" OnClick="btnProcurar_Click" />
+                                      
+                                    </div>
                                </div>
                                
                                 <!-- componentes do formulario -->
@@ -53,18 +90,41 @@
                            <div class="container col-12 col-md-5">
 
                                 <div class="row">
-                                    <div class="col-12">
-                                        <asp:GridView ID="gridRelatorio" runat="server" AutoGenerateColumns="False">
-                                            <Columns>
-                                                <asp:BoundField DataField="CODIGO" HeaderText="Código" />
-                                                <asp:BoundField DataField="DATA" HeaderText="Data" />
-                                                <asp:BoundField DataField="HORA" HeaderText="Hora" />
-                                                <asp:BoundField DataField="VALOR" HeaderText="Valor" />
-                                                <asp:BoundField DataField="VENDA.TIPO_PG" HeaderText="Tipo_pg" />
-                                            </Columns>
+                                    <div class="col-12 divGrid" style="OVERFLOW: auto;">
+                                        <asp:GridView ID="gridRelatorio" runat="server" UseAccessibleHeader="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                                            <AlternatingRowStyle BackColor="#CCCCCC" />
+                                            <FooterStyle BackColor="#CCCCCC" />
+                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                            <SortedAscendingHeaderStyle BackColor="#808080" />
+                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                            <SortedDescendingHeaderStyle BackColor="#383838" />
                                         </asp:GridView>
                                     </div>
                                 </div>
+                               <div class="row">
+                                   <div class="col-12 divGrid" style="OVERFLOW: auto;"> 
+                                       <asp:GridView ID="gridItens" runat="server" UseAccessibleHeader="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                            <AlternatingRowStyle BackColor="#CCCCCC" />
+                                            <Columns>
+                                                <asp:BoundField DataField="COD_VENDA" HeaderText="Código Venda" />
+                                                <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" />
+                                                <asp:BoundField DataField="QUANTIDADE" HeaderText="Quantidade" />
+                                                <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Total" />
+                                            </Columns>
+                                            <FooterStyle BackColor="#CCCCCC" />
+                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                            <SortedAscendingHeaderStyle BackColor="#808080" />
+                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                                        </asp:GridView>
+                                   </div>
+                               </div>
 
                            </div>
                      </div>
