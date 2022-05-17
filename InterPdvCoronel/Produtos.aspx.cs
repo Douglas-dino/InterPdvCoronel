@@ -14,13 +14,18 @@ namespace InterPdvCoronel
            
             if (!IsPostBack)
             {
-               /*if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
-                 {
+                if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
+                {
+                    atualizarGrid();
+                }
+                else
+                {
                      Response.Redirect("Default.aspx");
-                 }*/
-                atualizarGrid();
+                }
+
+
             }
-           
+
         }
 
         private void atualizarGrid()
@@ -45,13 +50,9 @@ namespace InterPdvCoronel
                 {
                     ((TextBox)controle).Text = string.Empty;
                 }
-                if (controle.GetType().Equals(typeof(DropDownList)))
-                {
-                    ((DropDownList)controle).SelectedIndex = 0;
-                }
-
-
+                
             }
+            gridProduto.SelectedIndex = -1;
 
         }
         protected void btnNovo_Click(object sender, EventArgs e)
@@ -76,19 +77,26 @@ namespace InterPdvCoronel
                     //Verifica se esstá inserindo ou atualizando
                     if (gridProduto.SelectedValue != null)
                     {//atualizando
+                        if (Session["NIVEL"].Equals(1))
+                        {
+                            lblMsg.Text = "Procedimento negado! ";
+                        }
+                        else
+                        {
+                            PRODUTO p = conexao.PRODUTO.FirstOrDefault(
+                           linha => linha.CODIGO.ToString().Equals(gridProduto.SelectedValue.ToString())
+                           );
 
-                        PRODUTO p = conexao.PRODUTO.FirstOrDefault(
-                            linha => linha.CODIGO.ToString().Equals(gridProduto.SelectedValue.ToString())
-                            );
-
-                        p.COD_BARRA = COD_BARRA.Text;
-                        p.NOME = NOME.Text;
-                        p.DESCRICAO = DESCRICAO.Text;
-                        p.QTD_ESTOQUE = Convert.ToInt32(QTD_ESTOQUE.Text);
-                        p.VALOR = Convert.ToDecimal(VALOR.Text);
-                        conexao.Entry(p);
-                        atualizarGrid();
-                        gridProduto.SelectedIndex = -1;
+                            p.COD_BARRA = COD_BARRA.Text;
+                            p.NOME = NOME.Text;
+                            p.DESCRICAO = DESCRICAO.Text;
+                            p.QTD_ESTOQUE = Convert.ToInt32(QTD_ESTOQUE.Text);
+                            p.VALOR = Convert.ToDecimal(VALOR.Text);
+                            conexao.Entry(p);
+                            atualizarGrid();
+                            gridProduto.SelectedIndex = -1;
+                        }
+                       
                     }
                     else
                     {
@@ -129,28 +137,37 @@ namespace InterPdvCoronel
 
         protected void btnExcluir_Click(object sender, EventArgs e)
         {
+         
             if (gridProduto.SelectedIndex.Equals(-1))
             {
                 lblMsg.Text = "Selecione um cadastro para excluir.";
             }
             else
             {
-                lblMsg.Text = string.Empty;
-                using (coronelEntities conexao = new coronelEntities())
+                if (Session["NIVEL"].Equals(1))
                 {
-                    int IdSlecionado = Convert.ToInt32(gridProduto.SelectedValue.ToString());
-
-                    PRODUTO p = conexao.PRODUTO.FirstOrDefault(
-                        linha => linha.CODIGO.ToString().Equals(IdSlecionado.ToString())
-                        );
-
-                    conexao.PRODUTO.Remove(p);
-                    gridProduto.SelectedIndex = -1;
-                    conexao.SaveChanges();
-                    atualizarGrid();
-                    LimparControles(this.Page.Form.Controls);
-
+                    lblMsg.Text = "Procedimento negado! ";
                 }
+                else
+                {
+                    lblMsg.Text = string.Empty;
+                    using (coronelEntities conexao = new coronelEntities())
+                    {
+                        int IdSlecionado = Convert.ToInt32(gridProduto.SelectedValue.ToString());
+
+                        PRODUTO p = conexao.PRODUTO.FirstOrDefault(
+                            linha => linha.CODIGO.ToString().Equals(IdSlecionado.ToString())
+                            );
+
+                        conexao.PRODUTO.Remove(p);
+                        gridProduto.SelectedIndex = -1;
+                        conexao.SaveChanges();
+                        atualizarGrid();
+                        LimparControles(this.Page.Form.Controls);
+
+                    }
+                }
+                
             }
             
         }

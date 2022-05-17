@@ -22,13 +22,14 @@ namespace InterPdvCoronel
                 if (Session["LOGIN"] != null) //Verifica se há acesso de usuário
                 {
                     lblUsuario.Text = "Operador: " + Session["LOGIN"].ToString();
+                    GerarCodVenda();
                 }
                 else
                 {
-                   // Response.Redirect("Default.aspx");
+                    Response.Redirect("Default.aspx");
                 }
 
-                GerarCodVenda();
+               
             }
             
         }
@@ -212,7 +213,7 @@ namespace InterPdvCoronel
                     }
                     else
                     {
-                        lblMsg.Text = "Produto não encontrado";
+                        lblMsg.Text = "Produto não encontrado!";
                         return;
                     }
 
@@ -221,7 +222,7 @@ namespace InterPdvCoronel
             }
             else
             {
-                lblMsg.Text = "Preencha os campos.";
+                lblMsg.Text = "Preencha os campos!";
             }
            
 
@@ -273,7 +274,7 @@ namespace InterPdvCoronel
                 }
                 else
                 {
-                    lblMsg.Text = "Registre um item na venda.";
+                    lblMsg.Text = "Registre um item na venda!";
 
                 }
 

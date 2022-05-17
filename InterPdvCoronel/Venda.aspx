@@ -101,28 +101,31 @@
                               
                                  <div class="row">
                                     <div class="col-12 divUsuario">
-                                        <asp:GridView ID="gridVenda" runat="server" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="3px" CellPadding="3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gridVenda_SelectedIndexChanged" DataKeyNames="ID" AutoGenerateColumns="False">
-                                            <AlternatingRowStyle BackColor="#CCCCCC" />
-                                            <Columns>
-                                                <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" />
-                                                <asp:BoundField DataField="QUANTIDADE" HeaderText="Qtd" />
-                                                <asp:BoundField DataField="PRODUTO.VALOR" HeaderText="Val_unit" />
-                                                <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Subtotal" />
-                                                <asp:CommandField HeaderText="Selecionar" ShowSelectButton="True" />
-                                            </Columns>
-                                            <FooterStyle BackColor="#CCCCCC" />
-                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
-                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
-                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                            <SortedDescendingHeaderStyle BackColor="#383838" />
-                                        </asp:GridView> 
+                                        <div class="rolagem">
+                                            <asp:GridView ID="gridVenda" runat="server" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gridVenda_SelectedIndexChanged" DataKeyNames="ID" AutoGenerateColumns="False">
+                                                <AlternatingRowStyle BackColor="#CCCCCC" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" ItemStyle-Width="200px" />
+                                                    <asp:BoundField DataField="QUANTIDADE" HeaderText="Qtd" />
+                                                    <asp:BoundField DataField="PRODUTO.VALOR" HeaderText="Val_unit" />
+                                                    <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Subtotal" />
+                                                    <asp:CommandField HeaderText="Selecionar" ShowSelectButton="True" />
+                                                </Columns>
+                                                <FooterStyle BackColor="#CCCCCC" />
+                                                <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                                            </asp:GridView> 
+                                        </div>
+                                       
                                        
                                         
                                        
-                                        </div>
+                                     </div>
                                </div> 
                                <div class="row">
                                    <div class="col-12 divUsuario">

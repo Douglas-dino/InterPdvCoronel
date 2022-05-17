@@ -1,10 +1,10 @@
 ﻿
 /*imagem do login*/
 .fundo {
-    
     height: 651px;
     width: 996px;
     margin-top: 13px;
+   
 }
 /*imagem do login*/
 
@@ -24,9 +24,10 @@
 /*campos do login*/
 #txtUsuario, #txtSenha {
     padding: 10px;
-    margin-left:50px;
-    width:230px;
+    margin-left: 50px;
+    width: 230px;
     margin-top: 20px;
+    
 }
 /*campos do login*/
 
@@ -47,6 +48,7 @@
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
+    
 }
 
     #btnLogar:hover {
@@ -64,13 +66,14 @@
     margin-left: 60px;
     width: 236px;
     height: 83px;
+    
 }
 
 /*mesagens*/
 #lblMsg {
     margin-left: 50px;
     font-family: Verdana;
-    font-size:12px;
+    font-size:16px;
     color: red;
 }
 /* label de direitos autorais*/
@@ -78,11 +81,13 @@
 /* copy login*/
 .copy{
     margin-top:120px;
+    position:fixed;
 }
 .rotulo {
     margin-left: 135px;
     font-style: italic;
     color: #A4c939;
+    position:fixed;
 }
 /* copy login*/
 

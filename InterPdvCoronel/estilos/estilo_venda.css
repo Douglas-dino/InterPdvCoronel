@@ -57,13 +57,19 @@ input {
 
 
 .btnExcluir {
-    margin-left: 400px;
-    margin-top: 355px;
-    position:fixed;
-    
+    margin-left: 0px;
+    margin-top: 0px;
+    position: static;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+    width: 485px;
+}
+
+#btnExcluirVen{
+    margin-left:410px;
 }
 /*botões do forulario*/
-
 .btnCadastro {
     height: 28px;
     width: 100px;
@@ -110,7 +116,7 @@ footer {
     width: 101%;
     position: fixed;
     left: -3px;
-    margin-top:10px;
+    margin-top:5px;
 }
 
 .rodPosicao {
@@ -124,7 +130,7 @@ footer {
     background-color: rgba(233, 233, 233);
     border-color: #A4C639;
     padding-bottom: 5px;
-    left: 300px;
+    left: 340px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
     margin-top: 60px;
     position: fixed;
@@ -174,9 +180,19 @@ li a:hover {
 
 #gridVenda{
     width: 485px;
-    position:fixed;
+    position:static;
 
 }
 
-
+.rolagem {
+    margin-top: 30px;
+    overflow: auto;
+    margin-left: 0px;
+    width: 485px;
+    height: 310px;
+    position: static;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+}
      

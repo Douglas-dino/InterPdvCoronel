@@ -12,12 +12,20 @@ namespace InterPdvCoronel
         static int cod;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
+            if (!IsPostBack)
             {
-                Response.Redirect("Default.aspx");
+                if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
+                {
+                    BuscarValoreCodigo();
+                }
+                else
+                {
+                    Response.Redirect("Default.aspx");
+                }
             }
+            
 
-            BuscarValoreCodigo();
+            
         }
         private void BuscarValoreCodigo()
         {
@@ -49,9 +57,17 @@ namespace InterPdvCoronel
         {
             if(txtValPago.Text != null || drpTipoPg.SelectedValue != null)
             {
-                using (coronelEntities conexao = new coronelEntities())
+                if (Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(0) ||
+                   Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(1) ||
+                   Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(3))
                 {
-                    
+                    lblMsg.Text = "Selecione o tipo de pagamento e recalcule.";
+                }
+                else
+                {
+                    using (coronelEntities conexao = new coronelEntities())
+                    {
+
                         PAGAMENTO p = new PAGAMENTO();
 
                         p.COD_VENDA = cod;
@@ -61,13 +77,15 @@ namespace InterPdvCoronel
                         conexao.PAGAMENTO.Add(p);
                         conexao.SaveChanges();
                         Response.Redirect("Venda.aspx");
-                    
-                    
+
+
+                    }
                 }
+                
             }
             else
             {
-                lblMsg.Text = " Preencha o valor pago e selecione o tipo de pagamento";
+                lblMsg.Text = " Preencha o valor pago e selecione o tipo de pagamento.";
             }
             
         }
@@ -79,10 +97,12 @@ namespace InterPdvCoronel
             if(txtValPago.Text != null)
             {
                txtTroco.Text = (Convert.ToDecimal(txtValPago.Text) - Convert.ToDecimal(Session["valor"])).ToString();
+
                 if (Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(0) ||
-                       drpTipoPg.SelectedIndex.Equals(1) || drpTipoPg.SelectedIndex.Equals(3))
+                    Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(1) ||
+                    Convert.ToDecimal(txtTroco.Text) > 0 && drpTipoPg.SelectedIndex.Equals(3))
                 {
-                    lblMsg.Text = "Somente a opção dinheiro retorna troco.";
+                    lblMsg.Text = "Selecione o tipo de pagamento e recalcule.";
                 }
                 
                 else

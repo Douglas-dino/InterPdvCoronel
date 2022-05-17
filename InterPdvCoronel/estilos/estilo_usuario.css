@@ -93,10 +93,12 @@ input {
     border-width: 2px;
 }
 
+#drpNivel, #drpStatus{
+    width:60px;
+}
 
-
-.status{
-    margin-left:40px;
+.status {
+    margin-left: 60px;
 }
 
 
@@ -107,7 +109,7 @@ input {
 }
 
 #status{
-    margin-left:40px;
+    margin-left:0px;
 }
 
 footer {
@@ -125,15 +127,16 @@ footer {
 
 .formulario {
     height: 520px;
-    width: 1050px;
+    width: 1070px;
     border-style: solid;
     border-color: #A4C639;
     background-color: rgba(233, 233, 233);
     padding-bottom: 5px;
-    left: 300px;
+    left: 280px;
     box-shadow: 2px 2px 2px 2px rgba(10, 10, 10, 0.616);
     margin-top: 60px;
     position: fixed;
+    
 }
 
 ul {
@@ -179,8 +182,18 @@ li a:hover {
 }
 
 #gridUsuario{
-    margin-top: 20px;
-    margin-left:50px;
-    width:620px;
-    position:fixed;
+    
+    width:600px;
+   
+}
+.rolagem {
+    margin-top: 10px;
+    overflow: auto;
+    width: 600px;
+    height: 380px;
+    position: static;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
+    margin-left: 70px;
 }

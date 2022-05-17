@@ -33,9 +33,13 @@ img {
     border-width: 2px;
 }
 
-#drpTipoPg{
-    font-size:18px;
-
+#drpTipoPg {
+    font-size: 18px;
+    width: 350px;
+    font-family: Verdana;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
 }
 
 #lblMsg {

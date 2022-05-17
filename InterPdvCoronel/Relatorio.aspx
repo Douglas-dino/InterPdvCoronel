@@ -19,7 +19,7 @@
                 <div class="col-12 col-md-2 container"><!-- menu -->
                        <div class ="divMenu">
                            <ul>
-                               <li><a class="ativo" href="Venda.aspx">Voltar</a></li> 
+                               <li><a class="ativo" href="Venda.aspx">Home</a></li> 
                                <li><a href="Produtos.aspx">Produto</a></li>
                                <li><a href="Usuarios.aspx">Usuário</a></li>
                            </ul>
@@ -28,15 +28,15 @@
                  <div class="formulario col-12 col-md-10 container posicaoForm">
                      <div class="row">
                         <div class="col-12">
-                            <p class="pformulario">Relatórios</p>
+                            <p class="pformulario">Relatório</p>
                         </div>
                      </div>
                      <div class ="row">
-                           <div class="container col-12 col-md-5" style="border:1.5px solid #A4C639;" >
+                           <div class="container col-12 col-md-5" style="border:2px solid #A4C639;" >
                                <div class="row">                             
                                    <div class="col-12 col-md-2">
-                                       <asp:Label ID="lblInicio" runat="server" Text="Inicio: "></asp:Label>
-                                       <asp:Calendar ID="cadRelatorio1" runat="server" BackColor="White" BorderColor="#A4C639" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="53px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px" SelectionMode="DayWeekMonth" FirstDayOfWeek="Sunday" OnSelectionChanged="cadRelatorio1_SelectionChanged1">
+                                       <asp:Label ID="lblData" runat="server" Text="Data: "></asp:Label>
+                                       <asp:Calendar ID="cadRelatorio1" runat="server" BackColor="White" BorderColor="#A4C639" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="53px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="209px" FirstDayOfWeek="Sunday" OnSelectionChanged="cadRelatorio1_SelectionChanged1">
                                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
                                            <DayStyle Width="14%" />
                                            <NextPrevStyle Font-Size="8pt" ForeColor="White" />
@@ -73,11 +73,14 @@
                                    
                                </div>
                                
-                               <div class="row drop" style="border-top:1.5px solid #A4C639;">
+                               <div class="row drop" style="border-top:2px solid #A4C639;">
                                
                                    <div class="col-12 col-md-3" >
                                        <asp:Label ID="Label1" runat="server" Text="Código: "></asp:Label>
-                                       <asp:DropDownList ID="drpItems" style="OVERFLOW: auto;" CssClass="campos" runat="server"></asp:DropDownList>
+                                       <asp:DropDownList ID="drpItems" CssClass="rolagemDrp" runat="server" onmousedown="this.size=3;" onfocusout="this.size=1;">
+
+                                       </asp:DropDownList>
+                                       
                                    </div>
                                    <div class="col-12 col-md-3">
                                         <asp:Button ID="btnProcurar" CssClass=" btnCadastro" runat="server" Text="Consultar Itens" OnClick="btnProcurar_Click" />
@@ -90,39 +93,45 @@
                            <div class="container col-12 col-md-5">
 
                                 <div class="row">
-                                    <div class="col-12 divGrid" style="OVERFLOW: auto;">
-                                        <asp:GridView ID="gridRelatorio" runat="server" UseAccessibleHeader="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-                                            <AlternatingRowStyle BackColor="#CCCCCC" />
-                                            <FooterStyle BackColor="#CCCCCC" />
-                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
-                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
-                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                            <SortedDescendingHeaderStyle BackColor="#383838" />
-                                        </asp:GridView>
+                                    <div class="col-12">
+                                       <div class="rolagem">
+                                           <asp:GridView ID="gridRelatorio" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                                                <AlternatingRowStyle BackColor="#CCCCCC" />
+                                                <FooterStyle BackColor="#CCCCCC" />
+                                                <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                                            </asp:GridView>
+                                       </div>
+                                        
                                     </div>
                                 </div>
                                <div class="row">
-                                   <div class="col-12 divGrid" style="OVERFLOW: auto;"> 
-                                       <asp:GridView ID="gridItens" runat="server" UseAccessibleHeader="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
-                                            <AlternatingRowStyle BackColor="#CCCCCC" />
-                                            <Columns>
-                                                <asp:BoundField DataField="COD_VENDA" HeaderText="Código Venda" />
-                                                <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" />
-                                                <asp:BoundField DataField="QUANTIDADE" HeaderText="Quantidade" />
-                                                <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Total" />
-                                            </Columns>
-                                            <FooterStyle BackColor="#CCCCCC" />
-                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
-                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
-                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                            <SortedAscendingHeaderStyle BackColor="#808080" />
-                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                            <SortedDescendingHeaderStyle BackColor="#383838" />
-                                        </asp:GridView>
+                                   <div class="col-12 divGrid"> 
+                                       <div class="rolagem">
+                                           <asp:GridView ID="gridItens" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                                <AlternatingRowStyle BackColor="#CCCCCC" />
+                                                <Columns>
+                                                    <asp:BoundField DataField="COD_VENDA" HeaderText="Código Venda" />
+                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" ItemStyle-Width="200px" />
+                                                    <asp:BoundField DataField="QUANTIDADE" HeaderText="Quantidade" />
+                                                    <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Total" />
+                                                </Columns>
+                                                <FooterStyle BackColor="#CCCCCC" />
+                                                <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#808080" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#383838" />
+                                            </asp:GridView>
+                                       </div>
+                                      
                                    </div>
                                </div>
 

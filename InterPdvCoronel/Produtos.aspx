@@ -20,7 +20,7 @@
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="inserir" ShowMessageBox="true" ForeColor="#373B44" />
                            <ul>
                                
-                               <li><asp:LinkButton ID="lkbVenda"  runat="server"  Text="Voltar" CssClass="ativo" href="Venda.aspx"></asp:LinkButton></li>
+                               <li><asp:LinkButton ID="lkbVenda"  runat="server"  Text="Home" CssClass="ativo" href="Venda.aspx"></asp:LinkButton></li>
                                <li><asp:LinkButton ID="lkbRelatorio"  runat="server" Text="Relatório" OnClick="lkbRelatorio_Click"></asp:LinkButton></li>
                                <li><asp:LinkButton ID="lbkUsuario"  runat="server" Text="Gestão de Usuário" OnClick="lbkUsuario_Click"></asp:LinkButton></li>
                               
@@ -113,25 +113,31 @@
 
                                 <!-- grid -->
 
-                                <asp:GridView ID="gridProduto" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="CODIGO" OnSelectedIndexChanged="gridProduto_SelectedIndexChanged" >
-                                    <AlternatingRowStyle BackColor="#CCCCCC" />
-                                    <Columns>
-                                        <asp:BoundField DataField="COD_BARRA" HeaderText="Cod_barra"></asp:BoundField>
-                                        <asp:BoundField DataField="NOME" HeaderText="Produto" />
-                                        <asp:BoundField DataField="DESCRICAO" HeaderText="Descrição" />
-                                        <asp:BoundField DataField="QTD_ESTOQUE" HeaderText="Qtd_estoque" />
-                                        <asp:BoundField DataField="VALOR" HeaderText="Valor" />
-                                        <asp:CommandField HeaderText="selecionar" ShowSelectButton="True" />
-                                    </Columns>
-                                    <FooterStyle BackColor="#CCCCCC" />
-                                    <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#808080" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#383838" />
-                                </asp:GridView>
+                                <div class="col-12">
+                                    <div class="rolagem">
+                                        <asp:GridView ID="gridProduto" runat="server" AutoGenerateColumns="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="CODIGO" OnSelectedIndexChanged="gridProduto_SelectedIndexChanged" >
+                                            <AlternatingRowStyle BackColor="#CCCCCC" />
+                                            <Columns>
+                                                <asp:BoundField DataField="COD_BARRA" HeaderText="Cod_barra"></asp:BoundField>
+                                                <asp:BoundField DataField="NOME" HeaderText="Produto" ItemStyle-Width="200px" />
+                                                <asp:BoundField DataField="DESCRICAO" HeaderText="Descrição" ItemStyle-Width="200px"/>
+                                                <asp:BoundField DataField="QTD_ESTOQUE" HeaderText="Qtd_estoque" />
+                                                <asp:BoundField DataField="VALOR" HeaderText="Valor" />
+                                                <asp:CommandField HeaderText="selecionar" ShowSelectButton="True" />
+                                            </Columns>
+                                            <FooterStyle BackColor="#CCCCCC" />
+                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                            <SelectedRowStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="#A4C639" />
+                                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                            <SortedAscendingHeaderStyle BackColor="#808080" />
+                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                                        </asp:GridView>
+                                    </div>
+                                    
+                                </div>
+                                
 
 
 

@@ -13,10 +13,10 @@ namespace InterPdvCoronel
     { 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
+          if (Session["LOGIN"] == null)// Verifica se há acesso de usuário
           {
               Response.Redirect("Default.aspx");
-          }*/
+          }
          
 
         }
@@ -50,7 +50,7 @@ namespace InterPdvCoronel
                     conexao.Open();
                     if(dt.Rows.Count.Equals(0))
                     {
-                        lblMsg.Text = "Registro não encontrado!";
+                        lblMsg.Text = "Data não selecionada ou Registro não encontrado!";
                         LimparControles(this.Page.Form.Controls);
 
                     }
@@ -100,10 +100,9 @@ namespace InterPdvCoronel
 
                 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-
-                throw ex;
+                lblMsg.Text = "Erro! ";
             }
             finally
             {
@@ -130,21 +129,22 @@ namespace InterPdvCoronel
                 {
                     ((TextBox)controle).Text = string.Empty;
                 }
-                if (controle.GetType().Equals(typeof(DropDownList)))
-                {
-                    ((DropDownList)controle).SelectedIndex = 0;
-                }
+               
 
 
             }
             drpItems.Items.Clear();
             gridRelatorio.DataSource = null;
             gridRelatorio.DataBind();
+            gridItens.DataSource = null;
+            gridItens.DataBind();
+            
         }
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
                 atualizarGrid();
+                
         }
 
         protected void btnLimpar_Click(object sender, EventArgs e)
@@ -154,17 +154,25 @@ namespace InterPdvCoronel
 
         protected void cadRelatorio1_SelectionChanged1(object sender, EventArgs e)
         {
-            drpItems.Items.Clear();
+            LimparControles(this.Page.Form.Controls);
         }
 
         protected void btnProcurar_Click(object sender, EventArgs e)
         {
             using (coronelEntities conexao = new coronelEntities())
             {
-                var lista = conexao.ITEM_VENDA.ToList().Where(
-                   linha => linha.COD_VENDA.Equals(Convert.ToInt32(drpItems.SelectedValue)));
-                gridItens.DataSource = lista;
-                gridItens.DataBind();
+                if(drpItems.SelectedIndex.Equals(-1))
+                {
+                    lblMsg.Text = "Consulte as vendas.";
+                   
+                }
+                else
+                {
+                    var lista = conexao.ITEM_VENDA.ToList().Where(
+                  linha => linha.COD_VENDA.Equals(Convert.ToInt32(drpItems.SelectedValue)));
+                    gridItens.DataSource = lista;
+                    gridItens.DataBind();
+                }
 
             }
 

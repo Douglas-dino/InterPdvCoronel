@@ -22,14 +22,14 @@
                        <div class ="divMenu">
                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="inserir" ShowMessageBox="True" ForeColor="#373B44" />
                            <ul>
-                               <li><a class="ativo" href="Venda.aspx">Voltar</a></li>
+                               <li><a class="ativo" href="Venda.aspx">Home</a></li>
                                <li><a href="Relatorio.aspx">Relatório</a></li>
                                <li><a href="Produtos.aspx">Produto</a></li>
                            </ul>
                        </div>
                    </div><!-- menu -->
                     <div class="formulario col-12 col-md-10 container">
-                        <div class="row">
+                        <div class="row" style="padding-left:-20px;">
                             <div class="col-12">
                                 <p class="pformulario">Cadastro de Usuários</p>
                             </div>
@@ -116,12 +116,13 @@
                                 </div>
                             </div><!-- componentes do formulario -->
                             <div class="col-12 col-md-8 divUsuario"><!-- grid -->
-                                    <asp:GridView ID="gridUsuario" runat="server" AutoGenerateColumns="False" CellPadding="5" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" BackColor="White" BorderColor="#A4C639" BorderStyle="Solid" BorderWidth="2px" ForeColor="Black" GridLines="Vertical" >
+                                <div class="rolagem">
+                                      <asp:GridView ID="gridUsuario"  runat="server" AutoGenerateColumns="False" CellPadding="5" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" BackColor="White"  ForeColor="Black" GridLines="Vertical" >
                                            <AlternatingRowStyle BackColor="#CCCCCC" />
                                            <Columns>
-                                               <asp:BoundField HeaderText="Nome" DataField="NOME"/>
+                                               <asp:BoundField HeaderText="Nome" DataField="NOME" ItemStyle-Width="200px" />
                                                <asp:BoundField HeaderText="Sobrenome" DataField="SOBRENOME" />
-                                               <asp:CommandField AccessibleHeaderText="Selecionar" SelectText="selecionar" ShowSelectButton="True" HeaderText="Selecionar" />
+                                               <asp:CommandField AccessibleHeaderText="Selecionar" SelectText="selecionar" ShowSelectButton="True" HeaderText="Selecionar" ItemStyle-Width="80px"/>
                                            </Columns>
                                            <FooterStyle BackColor="#CCCCCC" />
                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
@@ -131,7 +132,9 @@
                                            <SortedAscendingHeaderStyle BackColor="Gray" />
                                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                            <SortedDescendingHeaderStyle BackColor="#383838" />
-                                       </asp:GridView>      
+                                       </asp:GridView> 
+                                </div>
+                                      
                             </div><!-- grid -->
                         </div>
                     </div>

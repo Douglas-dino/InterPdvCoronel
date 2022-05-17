@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="col-12 col-md-5">
                                         
-                                        <asp:DropDownList ID="drpTipoPg" runat="server" CssClass="divUsuario campos pcampos">
+                                        <asp:DropDownList ID="drpTipoPg" runat="server" CssClass="divUsuario pcampos" onmousedown="this.size=3;" onfocusout="this.size=1;">
                                             <asp:ListItem>Credito</asp:ListItem>
                                             <asp:ListItem>Debito</asp:ListItem>
                                             <asp:ListItem>Dinheiro</asp:ListItem>

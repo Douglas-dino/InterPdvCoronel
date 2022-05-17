@@ -21,24 +21,24 @@
 
             <div class="col-12 col-md-4 ">
                 <form id="form1" runat="server" class="formLogin">
-
+                    
                     <div>
-          
+                        
                         <img src="imagens/Logologin.png" class ="login" />
 
                     </div>
                     <div>
-                        <asp:TextBox ID="txtUsuario"  placeholder="Usuário" runat="server" ></asp:TextBox>
+                        <asp:TextBox ID="txtUsuario"  placeholder="Usuário" runat="server" ></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="O campo login é obrigatório!" ForeColor="Red" ControlToValidate="txtUsuario" ValidationGroup="login">*</asp:RequiredFieldValidator>
 
                     </div>
                     <div>
 
-                        <asp:TextBox ID="txtSenha" placeholder="Senha" runat="server"  TextMode ="Password"></asp:TextBox>
+                        <asp:TextBox ID="txtSenha" placeholder="Senha" runat="server"  TextMode ="Password"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="O campo senha é obrigatório!" ForeColor="Red" ControlToValidate="txtSenha" ValidationGroup="login">*</asp:RequiredFieldValidator>
 
                     </div>
                     <div>
 
-                        <asp:Button ID="btnLogar"  runat="server" Text="Entrar" OnClick="btnLogar_Click"  />
+                        <asp:Button ID="btnLogar"  runat="server" Text="Entrar" OnClick="btnLogar_Click" ValidationGroup="login"  />
 
                     </div>
                     <div class="mensagem">
@@ -49,6 +49,7 @@
                     <div class ="copy">
 
                         <label class ="rotulo">&copy Tecnodroid</label>
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="White" ShowMessageBox="True" ValidationGroup="login" />
 
                     </div>
 

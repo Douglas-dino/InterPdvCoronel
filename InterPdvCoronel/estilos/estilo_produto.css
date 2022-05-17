@@ -70,7 +70,7 @@ input {
     transition-duration: 0.1s;
     cursor: pointer;
     display: inline-block;
-    margin-top: 45px;
+    margin-top: 35px;
     position: fixed;
 }
 
@@ -165,9 +165,21 @@ li a:hover {
 }
 
 #gridProduto {
+    
+    width: 650px;
+    height:404px;
+    position: static;
+}
+
+.rolagem {
     margin-top: 30px;
+    overflow: auto;
     margin-left: 50px;
     width: 620px;
-    position: fixed;
+    height: 375px;
+    position: static;
+    border-style: solid;
+    border-color: #A4C639;
+    border-width: 2px;
 }
 
