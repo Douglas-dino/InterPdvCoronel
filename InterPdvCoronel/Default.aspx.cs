@@ -39,7 +39,7 @@ namespace InterPdvCoronel
                     //verifica se o usuário está ativo ou inativo
                     if (user.STATUS.Equals("I"))
                     {
-                        lblMsg.Text = "Usuário inativo";
+                        lblMsg.Text = "Usuário Inativo!";
                     }
                     else
                     {

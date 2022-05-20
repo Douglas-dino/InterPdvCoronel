@@ -13,17 +13,17 @@ namespace InterPdvCoronel
         {
             if (!IsPostBack)
             {
-               if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
-               {
+                if (Session["LOGIN"] != null)// Verifica se há acesso de usuário
+                {
                     atualizarGrid();
                 }
-               else
-               {
-                   Response.Redirect("Default.aspx");
-               }
-                
+                else
+                {
+                    Response.Redirect("Default.aspx");
+                }
+               
             }
-                
+
         }
 
         private void atualizarGrid()

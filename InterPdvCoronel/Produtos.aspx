@@ -58,7 +58,7 @@
                                         
                                         <asp:TextBox ID="NOME" runat="server" CssClass="campos"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Preencha o campo Produto" Text="*" ValidationGroup="inserir" ControlToValidate="NOME" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo Produto só aceita texto. " Text="*" ValidationGroup="inserir" ControlToValidate="NOME" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{1,40}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo Produto só aceita texto. " Text="*" ValidationGroup="inserir" ControlToValidate="NOME" ForeColor="#CCFFCC" ValidationExpression="[a-zA-ZáéíóúàèìòùãõçÁÉÍÓÚÀÈÌÒÙÇÃÕ0-9 .]{1,40}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -70,7 +70,7 @@
                                     <div class="col-12 divUsuario">
                                         
                                          <asp:TextBox ID="DESCRICAO" runat="server" CssClass="campos"></asp:TextBox>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="O campo Descrição só aceita texto" Text="*" ValidationGroup="inserir" ControlToValidate="DESCRICAO" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{1,250}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="O campo Descrição só aceita texto" Text="*" ValidationGroup="inserir" ControlToValidate="DESCRICAO" ForeColor="#CCFFCC" ValidationExpression="[a-zA-ZáéíóúàèìòùãõçÁÉÍÓÚÀÈÌÒÙÇÃÕ0-9  .]{1,250}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -115,12 +115,12 @@
 
                                 <div class="col-12">
                                     <div class="rolagem">
-                                        <asp:GridView ID="gridProduto" runat="server" AutoGenerateColumns="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="CODIGO" OnSelectedIndexChanged="gridProduto_SelectedIndexChanged" >
+                                        <asp:GridView ID="gridProduto" runat="server" AutoGenerateColumns="False" BackColor="White"  CellPadding="1" ForeColor="Black" GridLines="Vertical" DataKeyNames="CODIGO" OnSelectedIndexChanged="gridProduto_SelectedIndexChanged" >
                                             <AlternatingRowStyle BackColor="#CCCCCC" />
                                             <Columns>
                                                 <asp:BoundField DataField="COD_BARRA" HeaderText="Cod_barra"></asp:BoundField>
-                                                <asp:BoundField DataField="NOME" HeaderText="Produto" ItemStyle-Width="200px" />
-                                                <asp:BoundField DataField="DESCRICAO" HeaderText="Descrição" ItemStyle-Width="200px"/>
+                                                <asp:BoundField DataField="NOME" HeaderText="Produto"/>
+                                                <asp:BoundField DataField="DESCRICAO" HeaderText="Descrição"/>
                                                 <asp:BoundField DataField="QTD_ESTOQUE" HeaderText="Qtd_estoque" />
                                                 <asp:BoundField DataField="VALOR" HeaderText="Valor" />
                                                 <asp:CommandField HeaderText="selecionar" ShowSelectButton="True" />

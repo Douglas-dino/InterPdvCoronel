@@ -12,7 +12,9 @@ namespace InterPdvCoronel
     {
         static decimal  totalVenda = 0;
         static int cod;
-        int qtd_unit;
+        static int qtd_item;
+        static  int cod_prod;
+        static int prod;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,7 +31,6 @@ namespace InterPdvCoronel
                     Response.Redirect("Default.aspx");
                 }
 
-               
             }
             
         }
@@ -123,6 +124,26 @@ namespace InterPdvCoronel
             }
         }
 
+        private void atualizarEstoque()
+        {
+            using(coronelEntities conexao = new coronelEntities())
+            {
+                int res;
+                int IdSlecionado = Convert.ToInt32(gridVenda.SelectedValue.ToString());
+
+                PRODUTO p = conexao.PRODUTO.FirstOrDefault(
+                      linha => linha.CODIGO.Equals(cod_prod)
+                      );
+                
+                prod = p.QTD_ESTOQUE;
+                res = prod + qtd_item;
+                p.QTD_ESTOQUE = res;
+                
+                conexao.Entry(p);
+                conexao.SaveChanges();
+            }
+        }
+
         protected void lkbSair_Click(object sender, EventArgs e)
         {
             totalVenda = 0;
@@ -135,7 +156,7 @@ namespace InterPdvCoronel
             // Verifica o nivel de acesso do usuário
             if (Session["NIVEL"].Equals(1))
             {
-                lblMsg.Text = "Acesso negado!";
+                lblMsg.Text = "Acesso Negado!";
             }
             else
             {
@@ -150,7 +171,7 @@ namespace InterPdvCoronel
             // Verifica o nivel de acesso do usuário
             if (Session["NIVEL"].Equals(1))
             {
-                lblMsg.Text = "Acesso negado!";
+                lblMsg.Text = "Acesso Negado!";
             }
             else
             {
@@ -199,7 +220,6 @@ namespace InterPdvCoronel
                             // insere os dados nos controles
                             txtProduto.Text = p.NOME;
                             txtVal_Unit.Text = p.VALOR.ToString();
-                            qtd_unit = p.QTD_ESTOQUE;
                             // calculo quantidade x  valor unitário
                             txtSubtotal.Text = (Convert.ToDecimal(txtVal_Unit.Text) * Convert.ToInt32(txtQtd.Text)).ToString();
                             // insere no controle o calculo
@@ -294,13 +314,16 @@ namespace InterPdvCoronel
             {
                 using (coronelEntities conexao = new coronelEntities())
                 {
-
+                    
                     int IdSlecionado = Convert.ToInt32(gridVenda.SelectedValue.ToString());
 
                     ITEM_VENDA i =
                         conexao.ITEM_VENDA.FirstOrDefault(
                             linha => linha.ID.ToString().Equals(IdSlecionado.ToString())
                             );
+
+                    qtd_item = i.QUANTIDADE;
+                    cod_prod = i.COD_PRODUTO;
 
                     conexao.ITEM_VENDA.Remove(i);
                     conexao.SaveChanges();
@@ -320,7 +343,9 @@ namespace InterPdvCoronel
                         }
 
                     }
+                    atualizarEstoque();
                     atualizarGrid();
+                    
                     gridVenda.SelectedIndex = -1;
                 }
             }

@@ -102,10 +102,10 @@
                                  <div class="row">
                                     <div class="col-12 divUsuario">
                                         <div class="rolagem">
-                                            <asp:GridView ID="gridVenda" runat="server" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gridVenda_SelectedIndexChanged" DataKeyNames="ID" AutoGenerateColumns="False">
+                                            <asp:GridView ID="gridVenda" runat="server" BackColor="White"  CellPadding="1" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="gridVenda_SelectedIndexChanged" DataKeyNames="ID" AutoGenerateColumns="False">
                                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                                 <Columns>
-                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" ItemStyle-Width="200px" />
+                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto"/>
                                                     <asp:BoundField DataField="QUANTIDADE" HeaderText="Qtd" />
                                                     <asp:BoundField DataField="PRODUTO.VALOR" HeaderText="Val_unit" />
                                                     <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Subtotal" />

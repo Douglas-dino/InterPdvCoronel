@@ -46,7 +46,7 @@
                                         
                                         <asp:TextBox ID ="txtNome" runat="server" CssClass="campos"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="O campo Nome é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtNome" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo Nome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtNome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{3,50}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="O campo Nome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtNome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-ZáéíóúàèìòùãõçÁÉÍÓÚÀÈÌÒÙÇÃÕ .]{3,50}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -54,7 +54,7 @@
                                         <label>Sobrenome:</label>
                                         <asp:TextBox ID="txtSobrenome" runat="server" CssClass="campos"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="O campo Sobrenome é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtSobrenome" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo Sobrenome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtSobrenome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Záéíóúàèìòùãõç .]{3,50}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="O campo Sobrenome só aceita texto" ValidationGroup="inserir" Text="*" ControlToValidate="txtSobrenome" ForeColor="#CCFFCC" ValidationExpression="[a-zA-ZáéíóúàèìòùãõçÁÉÍÓÚÀÈÌÒÙÇÃÕ .]{3,50}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -62,13 +62,13 @@
                                         <label>Cpf:</label>
                                         <asp:TextBox ID="txtCpf" runat="server" CssClass="campos"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="O campo cpf é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtCpf" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="O campo Cpf só aceita numero" ValidationGroup="inserir" Text="*" ControlToValidate="txtCpf" ForeColor="#CCFFCC" ValidationExpression="[0-9]{11,11}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="O campo Cpf só aceita  numero com 11 digitos" ValidationGroup="inserir" Text="*" ControlToValidate="txtCpf" ForeColor="#CCFFCC" ValidationExpression="[0-9]{11,11}"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="col-12 col-md-5 divUsuario">
                                         <label id="lblLogin">Login:</label>
                                         <asp:TextBox ID="txtLogin" runat="server" CssClass="campos"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="O campo Login é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtLogin" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="O campo Login  aceita texto numero e caracteres" ValidationGroup="inserir" Text="*" ControlToValidate="txtLogin" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõç@_*&amp;#!?.]{5,10}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="O campo Login  aceita texto numero e caracteres com no minimo 5 caracteres" ValidationGroup="inserir" Text="*" ControlToValidate="txtLogin" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõç@_*&amp;#!?.]{5,10}"></asp:RegularExpressionValidator>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -76,7 +76,7 @@
                                         <label>Senha:</label>
                                         <asp:TextBox ID="txtSenhaCad" runat="server" CssClass="campos" TextMode ="Password"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="O campo Senha é obrigatório" ValidationGroup="inserir" Text="*" ControlToValidate="txtSenhaCad" ForeColor="Red"></asp:RequiredFieldValidator>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="O campo Senha  aceita texto numeros e  caracteres" ValidationGroup="inserir" Text="*" ControlToValidate="txtSenhaCad" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõç@_*&;#!?.]{5,10}"></asp:RegularExpressionValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="O campo Senha  aceita texto numeros e  caracteres com no minimo 5 digitos" ValidationGroup="inserir" Text="*" ControlToValidate="txtSenhaCad" ForeColor="#CCFFCC" ValidationExpression="[a-zA-Z0-9áéíóúàèìòùãõçÁÉÍÓÚÀÈÌÒÙÇÃÕ@_*&;#!?.]{5,10}"></asp:RegularExpressionValidator>
 
                                     </div>
                                     <div class="col-12 col-md-2 divUsuario">
@@ -117,12 +117,12 @@
                             </div><!-- componentes do formulario -->
                             <div class="col-12 col-md-8 divUsuario"><!-- grid -->
                                 <div class="rolagem">
-                                      <asp:GridView ID="gridUsuario"  runat="server" AutoGenerateColumns="False" CellPadding="5" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" BackColor="White"  ForeColor="Black" GridLines="Vertical" >
+                                      <asp:GridView ID="gridUsuario"  runat="server" AutoGenerateColumns="False" CellPadding="1" OnSelectedIndexChanged="gridUsuario_SelectedIndexChanged" DataKeyNames="CODIGO" BackColor="White"  ForeColor="Black" GridLines="Vertical" >
                                            <AlternatingRowStyle BackColor="#CCCCCC" />
                                            <Columns>
-                                               <asp:BoundField HeaderText="Nome" DataField="NOME" ItemStyle-Width="200px" />
+                                               <asp:BoundField HeaderText="Nome" DataField="NOME"/>
                                                <asp:BoundField HeaderText="Sobrenome" DataField="SOBRENOME" />
-                                               <asp:CommandField AccessibleHeaderText="Selecionar" SelectText="selecionar" ShowSelectButton="True" HeaderText="Selecionar" ItemStyle-Width="80px"/>
+                                               <asp:CommandField AccessibleHeaderText="Selecionar" SelectText="selecionar" ShowSelectButton="True" HeaderText="Selecionar"/>
                                            </Columns>
                                            <FooterStyle BackColor="#CCCCCC" />
                                            <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />

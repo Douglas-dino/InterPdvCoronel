@@ -79,7 +79,7 @@ namespace InterPdvCoronel
                     {//atualizando
                         if (Session["NIVEL"].Equals(1))
                         {
-                            lblMsg.Text = "Procedimento negado! ";
+                            lblMsg.Text = "Procedimento Negado! ";
                         }
                         else
                         {
@@ -146,7 +146,7 @@ namespace InterPdvCoronel
             {
                 if (Session["NIVEL"].Equals(1))
                 {
-                    lblMsg.Text = "Procedimento negado! ";
+                    lblMsg.Text = "Procedimento Negado! ";
                 }
                 else
                 {
@@ -198,7 +198,7 @@ namespace InterPdvCoronel
             // Verifica o nivel de acesso do usuário
             if (Session["NIVEL"].Equals(1))
             {
-                //lblMsg.Text = "Acesso negado!";
+                lblMsg.Text = "Acesso Negado!";
             }
             else
             {
@@ -213,7 +213,7 @@ namespace InterPdvCoronel
             // Verifica o nivel de acesso do usuário
             if (Session["NIVEL"].Equals(1))
             {
-                //lblMsg.Text = "Acesso negado!";
+                lblMsg.Text = "Acesso Negado!";
             }
             else
             {

@@ -95,7 +95,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                        <div class="rolagem">
-                                           <asp:GridView ID="gridRelatorio" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                                           <asp:GridView ID="gridRelatorio" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="1" ForeColor="Black" GridLines="Vertical">
                                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                                 <FooterStyle BackColor="#CCCCCC" />
                                                 <HeaderStyle BackColor="#2e2e2e" Font-Bold="True" ForeColor="White" />
@@ -113,11 +113,11 @@
                                <div class="row">
                                    <div class="col-12 divGrid"> 
                                        <div class="rolagem">
-                                           <asp:GridView ID="gridItens" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="3" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                                           <asp:GridView ID="gridItens" runat="server" UseAccessibleHeader="False" BackColor="White"  CellPadding="1" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
                                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                                 <Columns>
                                                     <asp:BoundField DataField="COD_VENDA" HeaderText="Código Venda" />
-                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto" ItemStyle-Width="200px" />
+                                                    <asp:BoundField DataField="PRODUTO.NOME" HeaderText="Produto"/>
                                                     <asp:BoundField DataField="QUANTIDADE" HeaderText="Quantidade" />
                                                     <asp:BoundField DataField="VAL_UNITARIO" HeaderText="Total" />
                                                 </Columns>
